@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6558f74828bca9ebecac73d90cea4b1a",
+    "content-hash": "4612961878e6cbe4b42d53518ce86d38",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1345,6 +1345,57 @@
                 "serialize"
             ],
             "time": "2020-06-17T14:59:55+00:00"
+        },
+        {
+            "name": "pesamoni/composer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pesamoni/pesamoni_php.git",
+                "reference": "66e5271faf0b4f8fd18802c0afe924bf948ab976"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pesamoni/pesamoni_php/zipball/66e5271faf0b4f8fd18802c0afe924bf948ab976",
+                "reference": "66e5271faf0b4f8fd18802c0afe924bf948ab976",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^6.2",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2.12",
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "~2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "psm\\": "pesamoni/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Pesamoni Limited",
+                    "homepage": "https://github.com/Pesamoni/pesamoni_php"
+                }
+            ],
+            "homepage": "https://pesamoni.com",
+            "keywords": [
+                "api",
+                "php",
+                "sdk",
+                "swagger"
+            ],
+            "time": "2019-02-06T10:22:54+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -5798,7 +5849,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "pesamoni/composer": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

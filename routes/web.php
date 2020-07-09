@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('template');
-});
+Route::post('/create-my-revelation','RevelationsController@validateRevelation');
+Route::delete('/delete-revelation/{revelation_id}','RevelationsController@deleteRevelation');
+Route::get('/get-my-revelations/{trainee_id}','RevelationsController@getMyRevelations');
+Route::get('/get-all-revelations','RevelationsController@getAllRevelations');
+Route::post('/test-api','PaymentsController@acceptMoneyFromSubscriber');
