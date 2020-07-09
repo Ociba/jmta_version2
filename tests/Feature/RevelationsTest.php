@@ -29,7 +29,16 @@ class RevelationsTest extends TestCase
         ]);
         $this->assertDatabaseHas('revelations',['revelation_seven' => 'I am born by God']);
     }
-
+    /**
+     * This function gets the revelations posted by the trainee them selves
+     * @test
+     */
+    public function getMyRevelations(){
+        $this->postRevelations();
+        $my_revelations = Revelations::first();
+        $response = $this->get('/get-my-revelations/'.$my_revelations->id);
+        $this->assertCount(1, Revelations::find($my_revelations));
+    }
     /**
      * This function deleted the revelation, can only be done by the admin
      * @test
@@ -40,4 +49,14 @@ class RevelationsTest extends TestCase
         $response = $this->delete('/delete-revelation/'. $revelation_to_delete->id);
         $this->assertEquals(0, count(Revelations::all()));
     }
+
+    /**
+     * This function gets all revelations from the users by the admin
+     */
+    public function getAllRevelations(){
+        $this->postRevelations();
+        $response = $this->get('/get-all-revelations');
+        $this->assertEquals(0, count(Revelations::all()));
+    }
+
 }

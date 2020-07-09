@@ -23,7 +23,28 @@ class RevelationsController extends Controller
         $revelation->save();
         return redirect()->back()->with('msg','Thank you for posting todays revelation, looking forward to hearing from you tomorrow');
     }
+    /**
+     * This function sends a message every after 10 days to the bible marathon 
+     * trainees to congulatulate them
+     */
+    private function congulatulateTrainees(){
+        return redirect('/')->with('msg','Wow, Congratulations. You have reached the tenth day of your bible marathon');
+    }
 
+    /**
+     * This function gets the revelations that have been posted my me as a user
+     */
+    protected function getMyRevelations($trainee_id){
+        $my_revelations = Revelations::find($trainee_id)->get();
+        //return $my_revelations;
+    }
+
+    /**
+     * This function gets all the revelations that were posted by all trainees
+     */
+    protected function getAllRevelations(){
+        $all_revelations = Revelations::get();
+    }
     /**
      * This function deletes the revelation, only the Admin does this
      */
