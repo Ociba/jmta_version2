@@ -28,9 +28,6 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{asset('admin_pages/node_modules/styleswitcher/jQuery.style.switcher.js')}}"></script>
-    <script src="{{asset('admin_pages/node_modules/calendar/dist/fullcalendar.min.js')}}"></script>
-    <script src="{{asset('admin_pages/node_modules/calendar/dist/cal-init.js')}}"></script>
-    <script src="{{asset('admin_pages/node_modules/calendar/jquery-ui.min.js')}}"></script>
     <script src="{{asset('admin_pages/node_modules/moment/moment.js')}}"></script>
     <script src="{{asset('admin_pages/node_modules/wizard/jquery.steps.min.js')}}"></script>
     <script src="{{asset('admin_pages/node_modules/wizard/jquery.validate.min.js')}}"></script>
@@ -38,6 +35,7 @@
     <script src="{{asset('admin_pages/node_modules/sweetalert/sweetalert.min.html')}}"></script>
     <script src="{{asset('admin_pages/node_modules/wizard/steps.js')}}"></script>
     <script src="{{asset('admin_pages/js/chat.js')}}"></script>
+    <script src="{{asset('admin_pages/js/jasny-bootstrap.js')}}"></script>
 
     <!-- This is data table -->
     <script src="{{asset('admin_pages/node_modules/datatables.net/js/jquery.dataTables.min.js')}}"></script>

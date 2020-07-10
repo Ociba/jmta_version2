@@ -26,3 +26,5 @@ Route::get('/get-all-trainees','TraineesController@getAllTrainees')->name('All T
 Route::get('/get-new-trainees','TraineesController@getNewTrainees')->name('New Trainees');
 Route::get('/get-old-trainees','TraineesController@getOldTrainees')->name('Old Trainees');
 Route::get('/',function(){ return view('template');});
+Route::get('/get-enrollment-form','EnrollmentController@getEnrollmentForm');
+Route::get('/get-assessment-form','AssessmentControlller@getAssessmentForm');
