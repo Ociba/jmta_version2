@@ -19,6 +19,7 @@
                     @include('layouts.calendar')
                 </div>
                 @include('layouts.footer')
+                {{-- @include('layouts.javascript') --}}
             </div>
         </div>
     </body>

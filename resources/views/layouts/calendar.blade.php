@@ -1,6 +1,8 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
+{{-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> --}}
+{{-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> --}}
+
+<script src="{{asset('admin_pages/node_modules/jquery/jquery.min.js')}}"></script>
 <!------ Include the above in your HEAD tag ---------->
     <head>
         <script>
@@ -58,7 +60,7 @@
                 allDaySlot: false,
                 selectHelper: true,
                 select: function(start, end, allDay) {
-                  var title = prompt('Event Title:');
+                  var title = window.location('/l');
                   if (title) {
                     calendar.fullCalendar('renderEvent', {
                         title: title,
@@ -188,7 +190,11 @@
     </head>
     <body>
         <div id='wrap'>
-            <div id='calendar'></div>
+          @if(request()->route()->getName() == "All Revelations")
+            <a href="/get-revelations-on-this-day/2"><div id='calendar'></div></a>
+          @else
+          <a href="/create-new-revelation"><div id='calendar'></div></a>
+          @endif
             <div style='clear:both'></div>
         </div>
     </body>
@@ -6835,3 +6841,11 @@
     
     })(jQuery);
 </script>
+    
+    <!--Menu sidebar -->
+    <script src="{{asset('admin_pages/js/sidebarmenu.js')}}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{asset('admin_pages/js/custom.min.js')}}"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
