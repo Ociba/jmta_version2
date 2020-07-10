@@ -16,6 +16,7 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     @include('layouts.breadcrumbs')
+                    @include('layouts.cards')
                     @include('layouts.datatable')
                 </div>
                 @include('layouts.footer')
