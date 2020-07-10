@@ -31,3 +31,5 @@ Route::get('/get-assessment-form','AssessmentControlller@getAssessmentForm');
 Route::get('/get-courses','CoursesController@getCourses');
 Route::get('/get-payment-methods','PaymentsController@getPaymentMethod');
 Route::get('/get-sub-courses','CoursesController@getSubCourses');
+Route::get('/start-lectures/{id}','CoursesController@getLecture');
+Route::get('/view-course/{id}','CoursesController@viewCourse')->name("Lectures");
