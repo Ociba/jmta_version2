@@ -20,3 +20,5 @@ Route::get('/get-all-revelations','RevelationsController@getAllRevelations');
 Route::post('/test-api','PaymentsController@acceptMoneyFromSubscriber');
 Route::get('/get-my-revelations','RevelationsController@getRevelationsPage');
 Route::get('/',function(){ return view('template');});
+Route::get('/get-enrollment-form','EnrollmentController@getEnrollmentForm');
+Route::get('/get-assessment-form','AssessmentControlller@getAssessmentForm');
