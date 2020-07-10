@@ -5,7 +5,7 @@
             <div class="card-body">
                 <h4 class="card-title">Enrollment Form</h4>
                 <h6 class="card-subtitle">Follow the steps</h6>
-                <form action="#" class="validation-wizard wizard-circle">
+                <form action="/j" class="validation-wizard wizard-circle">
                     <!-- Step 1 -->
                     <h6>Step 1</h6>
                     <section>
@@ -149,6 +149,9 @@
                                     <input type="file" class="form-control" id="wphoneNumber2"> </div>
                             </div>
                         </div>
+                    <div clsss="row">
+                    <a href="/get-sub-courses" button class="btn btn-primary">SubCourses</button></a>
+                    </div>
                     </section>
                 </form>
             </div>

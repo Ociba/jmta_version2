@@ -22,3 +22,6 @@ Route::get('/get-my-revelations','RevelationsController@getRevelationsPage');
 Route::get('/',function(){ return view('template');});
 Route::get('/get-enrollment-form','EnrollmentController@getEnrollmentForm');
 Route::get('/get-assessment-form','AssessmentControlller@getAssessmentForm');
+Route::get('/get-courses','CoursesController@getCourses');
+Route::get('/get-payment-methods','PaymentsController@getPaymentMethod');
+Route::get('/get-sub-courses','CoursesController@getSubCourses');
