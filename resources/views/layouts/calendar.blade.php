@@ -2,8 +2,6 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<!DOCTYPE html>
-<html>
     <head>
         <script>
             $(document).ready(function() {
@@ -141,16 +139,10 @@
         </script>
         <style>
             body {
-            margin-bottom: 40px;
-            margin-top: 40px;
             text-align: center;
             font-size: 14px;
             font-family: "Open Sans", sans-serif;
             background: url(http://www.digiphotohub.com/wp-content/uploads/2015/09/bigstock-Abstract-Blurred-Background-Of-92820527.jpg);
-            }
-            #wrap {
-            width: 1100px;
-            margin: 0 auto;
             }
             #external-events {
             float: left;
