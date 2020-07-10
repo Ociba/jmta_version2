@@ -18,5 +18,7 @@ Route::delete('/delete-revelation/{revelation_id}','RevelationsController@delete
 Route::get('/get-my-revelations/{trainee_id}','RevelationsController@getMyRevelations');
 Route::get('/get-all-revelations','RevelationsController@getAllRevelations');
 Route::post('/test-api','PaymentsController@acceptMoneyFromSubscriber');
-Route::get('/', function(){ return view('template');});
+Route::get('/get-my-revelations','RevelationsController@getRevelationsPage');
+Route::get('/',function(){ return view('template');});
 Route::get('/get-enrollment-form','EnrollmentController@getEnrollmentForm');
+Route::get('/get-assessment-form','AssessmentControlller@getAssessmentForm');

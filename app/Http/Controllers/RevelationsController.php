@@ -7,6 +7,9 @@ use App\Revelations;
 
 class RevelationsController extends Controller
 {
+    protected function getRevelationsPage(){
+        return view('Admin.my_revelations');
+    }
     /**
      * This function creates a revelation by the candidate
      */
