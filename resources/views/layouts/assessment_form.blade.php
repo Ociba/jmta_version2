@@ -116,7 +116,7 @@
                         <p class="help-block text-center text-muted"><small>SHALOM</small></p> 
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="/get-courses" button type="submit" class="btn btn-primary">Save</button></a>
                     </div>
                 </form>
             </div>

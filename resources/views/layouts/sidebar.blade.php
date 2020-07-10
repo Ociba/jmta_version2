@@ -14,7 +14,6 @@
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="icon-Car-Wheel"></i><span class="hide-menu">Forms </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="/get-assessment-form">Assessment Form </a></li>
-                        <li><a href="/get-enrollment-form">Enrollment Form</a></li>
                     </ul>
                 </li>
                 <li class="nav-small-cap">--- Courses and Course Content</li>
