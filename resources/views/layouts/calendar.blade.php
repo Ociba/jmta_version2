@@ -7,7 +7,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card-body b-l calender-sidebar">
-                            <div id="calendar"></div>
+                            @if(request()->route()->getName() == "My Revelations")
+                            <a href="/create-new-revelation"><div id="calendar"></div></a>
+                            @else
+                            <a href="/get-revelations-on-this-day/1"><div id="calendar"></div></a>
+                            @endif
                         </div>
                     </div>
                 </div>
