@@ -10,6 +10,11 @@ class RevelationsController extends Controller
     protected function getRevelationsPage(){
         return view('Admin.my_revelations');
     }
+
+    protected function getRevelationsForm(){
+        return view('Admin.revelations_form');
+    }
+
     /**
      * This function creates a revelation by the candidate
      */
@@ -47,6 +52,7 @@ class RevelationsController extends Controller
      */
     protected function getAllRevelations(){
         $all_revelations = Revelations::get();
+        return view('Admin.all_students_revelations');
     }
     /**
      * This function deletes the revelation, only the Admin does this
@@ -54,6 +60,14 @@ class RevelationsController extends Controller
     protected function deleteRevelation($revelation_id){
         Revelations::find($revelation_id)->delete();
         return redirect()->back()->with('msg','A revelation has been deleted successfully');
+    }
+
+    /**
+     * This function gets revelations of the checked day
+     */
+    protected function getAllRevelationsForClickedDay($date){
+        $this_day = Revelations::whereDate('created_at',$date)->get();
+        return view('Admin.revelations_for_a_day',compact('this_day'));
     }
     /**
      * This function validates the Revelations

@@ -21,10 +21,8 @@
     <link href="{{asset('admin_pages/css/colors/blue-dark.css')}}" id="theme" rel="stylesheet">
     <link href="{{asset('admin_pages/css/pages/card-page.css')}}" rel="stylesheet">
     <link href="{{asset('admin_pages/css/pages/progressbar-page.css')}}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-        href="{{asset('admin_pages/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
-	<link rel="stylesheet" type="text/css"
-        href="{{asset('admin_pages/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin_pages/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('admin_pages/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css')}}">
     <!-- Custom CSS -->
     <link href="{{asset('admin_pages/css/pages/table-pages.css')}}" rel="stylesheet">
     <link href="{{asset('admin_pages/css/pages/chat-app-page.css')}}" rel="stylesheet">
