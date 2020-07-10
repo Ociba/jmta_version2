@@ -1,3 +1,3 @@
-<footer class="footer">
-                © 2019 Admin Wrap Admin by themedesigner.in
+<footer class="footer text-white">
+                © {{date('Y')}} John Mulinde Trumpet Academy
 </footer>
