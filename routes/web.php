@@ -26,10 +26,11 @@ Route::get('/get-all-trainees','TraineesController@getAllTrainees')->name('All T
 Route::get('/get-new-trainees','TraineesController@getNewTrainees')->name('New Trainees');
 Route::get('/get-old-trainees','TraineesController@getOldTrainees')->name('Old Trainees');
 Route::get('/',function(){ return view('template');});
-Route::get('/get-enrollment-form','EnrollmentController@getEnrollmentForm');
-Route::get('/get-assessment-form','AssessmentControlller@getAssessmentForm');
-Route::get('/get-courses','CoursesController@getCourses');
-Route::get('/get-payment-methods','PaymentsController@getPaymentMethod');
-Route::get('/get-sub-courses','CoursesController@getSubCourses');
+Route::get('/get-enrollment-form','EnrollmentController@getEnrollmentForm')->name('Enrollment Form');
+Route::get('/get-assessment-form','AssessmentControlller@getAssessmentForm')->name('Assessment Form');
+Route::get('/get-courses','CoursesController@getCourses')->name('Courses');
+Route::get('/get-payment-methods','PaymentsController@getPaymentMethod')->name('Payment Methods');
+Route::get('/get-sub-courses','CoursesController@getSubCourses')->name('Subcourses');
 Route::get('/start-lectures/{id}','CoursesController@getLecture');
 Route::get('/view-course/{id}','CoursesController@viewCourse')->name("Lectures");
+Route::get('/get-forum','ForumController@getForum')->name('Forum');
