@@ -8,6 +8,9 @@
                 <li>
                     <a class="waves-effect waves-dark text-white" href="/get-my-revelations" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">My Revelations</span></a>
                 </li>
+                <li>
+                    <a class="waves-effect waves-dark text-white" href="/get-forum" aria-expanded="false"><i class="fab fa-rocketchat"></i><span class="hide-menu">Forum</span></a>
+                </li>
 
                 <li class="nav-small-cap text-left ml-4 text-white"><h4>Assessment</h4> </li>
                 <li>
