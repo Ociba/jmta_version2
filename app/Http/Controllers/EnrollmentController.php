@@ -8,7 +8,7 @@ class EnrollmentController extends Controller
 {
     //creating an instance of payment
     public function __construct(){
-        $payment_instance = new PaymentsController;
+        $this->payment_instance = new PaymentsController;
     }
 
     protected function getEnrollmentForm(){
@@ -18,7 +18,8 @@ class EnrollmentController extends Controller
      *   this function created an enrollment form
      * Before enrollment, payment must occur
     */
-    public function enrollNewTrainee(){
+    private function enrollNewTrainee(){
+        $this->payment_instance->makeAPayment();
         $enrollment = new Enrollment;
         $enrollment->email = auth()->user()->email;
         $enrollment->first_name = request()->first_name;
@@ -41,26 +42,7 @@ class EnrollmentController extends Controller
         $enrollment->save();
         return redirect()->back()->with('msg', 'Your enrollment was successfuly');
     }
-    /**
-     * this function calls the payment depending on the users selection
-     */
-    private function makeAPayment(){
-        if(request()->payment_method == "mobile_money"){
-            return $this->payment_instance->paymentByMobileMoney();
-        }
-        elseif(request()->payment_method == "visa_card"){
-            return $this->payment_instance->paymentByVisa();
-        }
-        elseif(request()->payment_method == 'master_card'){
-            return $this->payment_instance->paymentByMasterCard();
-        }
-        elseif(request()->payment_method == 'world_remit'){
-            return $this->payment_instance->paymentByWorldRemit();
-        }
-        elseif(request()->payment_method == 'cash'){
-            return $this->payment_instance->paymentByCash();
-        }
-    }
+    
     /**
      * This function validates the enrollment form
      */
@@ -100,7 +82,7 @@ class EnrollmentController extends Controller
         }elseif(empty(request()->passport_photo)){
             return redirect()->back()->withErrors("Please attach your passport photo to continue");
         }else{
-            return $this->makeAPayment();
+            return $this->enrollNewTrainee();
         }
     }
 }

@@ -33,7 +33,9 @@ class CreateEnrollmentsTable extends Migration
             $table->string('occupation');
             $table->string('payment_method');
             $table->string('passport_photo');
-            $table->enum('status',['pending','failed','successful'])->default('pending');
+            $table->enum('attendance_status',['suspended','active'])->default('active');
+            $table->enum('payment_status',['pending','failed','successful'])->default('pending');
+            $table->softDeletes('deleted_at',0)->nullable();
             $table->timestamps();
         });
     }

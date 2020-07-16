@@ -48,7 +48,8 @@ class RevelationsController extends Controller
     /**
      * This function gets the revelations that have been posted my me as a user
      */
-    protected function getMyRevelations($trainee_id){
+    protected function getIndividualRevelations($trainee_id){
+        return "all revelations";
         $my_revelations = Revelations::find($trainee_id)->get();
         //return $my_revelations;
     }
@@ -58,7 +59,7 @@ class RevelationsController extends Controller
      */
     protected function getAllRevelations(){
         $all_revelations = Revelations::get();
-        return view('Admin.all_students_revelations');
+        return view('Admin.all_revelations');
     }
     /**
      * This function deletes the revelation, only the Admin does this

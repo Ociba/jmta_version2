@@ -6,11 +6,6 @@ use Illuminate\Http\Request;
 
 class PaymentsController extends Controller
 {
-
-    // creating an instance of the Enrollment Method
-    public function __construct(){
-        $this->enrollment_instance = new EnrollmentController; 
-    }
     /**
      * This function returns the payment methods
      */
@@ -18,9 +13,29 @@ class PaymentsController extends Controller
         return view('Admin.payment_methods');
     }
     /**
+     * this function calls the payment depending on the users selection
+     */
+    public function makeAPayment(){
+        if(request()->payment_method == "mobile_money"){
+            return $this->payment_instance->paymentByMobileMoney();
+        }
+        elseif(request()->payment_method == "visa_card"){
+            return $this->payment_instance->paymentByVisa();
+        }
+        elseif(request()->payment_method == 'master_card'){
+            return $this->payment_instance->paymentByMasterCard();
+        }
+        elseif(request()->payment_method == 'world_remit'){
+            return $this->payment_instance->paymentByWorldRemit();
+        }
+        elseif(request()->payment_method == 'cash'){
+            return $this->payment_instance->paymentByCash();
+        }
+    }
+    /**
      * This function makes the mobile money payments
      */
-    public function paymentByMobileMoney(){
+    private function paymentByMobileMoney(){
         //http://pesamoni.com/api/live/v1/transactions
         //After the Transaction is successfull, call the enrollment method to continue
         return $this->enrollment_instance->enrollNewTrainee();
@@ -29,7 +44,7 @@ class PaymentsController extends Controller
     /**
      * This function makes the visa card payments
      */
-    public function paymentByVisa(){
+    private function paymentByVisa(){
         //After the Transaction is successfull, call the enrollment method to continue
         return $this->enrollment_instance->enrollNewTrainee();
     }
@@ -37,7 +52,7 @@ class PaymentsController extends Controller
     /**
      * This function makes the worldRemit payment
      */
-    public function paymentByWorldRemit(){
+    private function paymentByWorldRemit(){
          //After the Transaction is successfull, call the enrollment method to continue
         return $this->enrollment_instance->enrollNewTrainee();
     }
@@ -45,7 +60,7 @@ class PaymentsController extends Controller
     /**
      * This function makes the master card payments
      */
-    public function paymentByMasterCard(){
+    private function paymentByMasterCard(){
         //After the Transaction is successfull, call the enrollment method to continue
         return $this->enrollment_instance->enrollNewTrainee();
     }
@@ -53,7 +68,7 @@ class PaymentsController extends Controller
     /**
      * This function makes payment by cash
      */
-    public function paymentByCash(){
+    private function paymentByCash(){
          //After the Transaction is successfull, call the enrollment method to continue
         return $this->enrollment_instance->enrollNewTrainee();
     }
