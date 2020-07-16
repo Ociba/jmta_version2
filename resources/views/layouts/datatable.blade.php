@@ -18,8 +18,8 @@
                     <th class="text-white">Image</th>
                     <th class="text-white">Status</th>
                     @else
-                    <th> class="text-white"Chapters Read</th>
-                    <th class="text-white">Remaining chapters</th>
+                    <th class="text-white"> Chapters Read</th>
+                    <th class="text-white">View revelations</th>
                     @endif
                 </tr>
             </thead>
@@ -30,7 +30,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="text-white">
                     <td>Julius Ssemakula</td>
@@ -38,7 +38,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="font-weight-bold">
                     <td>Julius Ssemakula</td>
@@ -46,7 +46,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="text-white">
                     <td>Julius Ssemakula</td>
@@ -54,7 +54,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="font-weight-bold">
                     <td>Julius Ssemakula</td>
@@ -62,7 +62,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="text-white">
                     <td>Julius Ssemakula</td>
@@ -70,7 +70,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="font-weight-bold">
                     <td>Julius Ssemakula</td>
@@ -78,7 +78,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="text-white">
                     <td>Julius Ssemakula</td>
@@ -86,7 +86,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="font-weight-bold">
                     <td>Julius Ssemakula</td>
@@ -94,7 +94,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="text-white">
                     <td>Julius Ssemakula</td>
@@ -102,7 +102,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="font-weight-bold">
                     <td>Julius Ssemakula</td>
@@ -110,7 +110,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="text-white">
                     <td>Julius Ssemakula</td>
@@ -118,7 +118,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="font-weight-bold">
                     <td>Julius Ssemakula</td>
@@ -126,7 +126,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="text-white">
                     <td>Julius Ssemakula</td>
@@ -134,7 +134,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="font-weight-bold">
                     <td>Julius Ssemakula</td>
@@ -142,7 +142,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
                 <tr class="text-white">
                     <td>Julius Ssemakula</td>
@@ -150,7 +150,7 @@
                     <td>{{ date('Y-m-d') }}</td>
                     <td>julisema4@gmail.com</td>
                     <td>10</td>
-                    <td>30</td>
+                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
                 </tr>
             </tbody>
         </table>

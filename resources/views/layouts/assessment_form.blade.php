@@ -7,11 +7,11 @@
                 <form class="form-material m-t-40">
                     <div class="form-group">
                         <label class="text-white">1. How many hours, every day, did it take you to finish the forty chapters? </label>
-                        <input type="text" class="form-control form-control-line text-white" value=""> 
+                        <input type="text" class="form-control form-control-line text-white" value="" name="question_one"> 
                     </div>
                     <div class="form-group">
                         <label class="text-white">2.	Did you read the forth chapters at once daily, or did you break them down into different time slots?</label>
-                        <input type="text" id="example-email2" name="example-email" class="form-control text-white" placeholder=""> 
+                        <input type="text" id="example-email2" name="question_two" class="form-control text-white" placeholder=""> 
                     </div>
                     <div class="form-group">
                         <label class="text-white">(If in different slots please indicate).</label>
