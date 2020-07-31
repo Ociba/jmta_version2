@@ -20,14 +20,23 @@ class AssessmentControlller extends Controller
      * This function submits the assessment
      */
     private function submitAssessment(){
+
+        $video_item = request()->video_recording;
+        $video_recording_original_name = $video_item->getClientOriginalName();
+        $video_item->move('marathon-videos/',$video_recording_original_name);
+
         $assessment = new Assessment;
         $assessment->question_one       = request()->question_one;
         $assessment->question_two       = request()->question_two;
+        $assessment->question_if        =request()->question_if;
         $assessment->question_three     = request()->question_three;
         $assessment->question_four      = request()->question_four;
         $assessment->question_five      = request()->question_five;
         $assessment->question_six       = request()->question_six;
-        $assessment->question_seven     = request()->question_seven;
+        $assessment->question_seven_one = request()->question_seven_one;
+        $assessment->question_seven_two = request()->question_seven_two;
+        $assessment->question_seven_three = request()->question_seven_three;
+        $assessment->question_seven_four= request()->question_seven_four;
         $assessment->question_eight     = request()->question_eight;
         $assessment->question_nine      = request()->question_nine;
         $assessment->question_ten       = request()->question_ten;
@@ -41,10 +50,10 @@ class AssessmentControlller extends Controller
         $assessment->question_eighteen  = request()->question_eighteen;
         $assessment->question_nineteen  = request()->question_nineteen;
         $assessment->question_twenty    = request()->question_twenty;
-        $assessment->video_recording    = $video_item;
+        $assessment->video_recording    = $video_recording_original_name;
         $assessment->trainee_id         = $this->authenticated_user->getAuthenticatedUser();
         $assessment->save();
-        return redirect()->back()->with('msg','Your assessment has been recieved. we are glad you have decided to come for the accademy');
+        return redirect('/get-courses')->with('msg','Your assessment has been recieved. we are glad you have decided to come for the accademy');
     }
 
     /**
@@ -63,8 +72,14 @@ class AssessmentControlller extends Controller
             return redirect()->back()->withErrors('Question five is required, please fill it to continue');
         }elseif(empty(request()->question_six)){
             return redirect()->back()->withErrors('Question six is required, please fill it to continue');
-        }elseif(empty(request()->question_seven)){
-            return redirect()->back()->withErrors('Question seven is required, please fill it to continue');
+        }elseif(empty(request()->question_seven_one)){
+            return redirect()->back()->withErrors('Question seven Roman one is required, please fill it to continue');
+        }elseif(empty(request()->question_seven_two)){
+            return redirect()->back()->withErrors('Question seven Roman two is required, please fill it to continue');
+        }elseif(empty(request()->question_seven_three)){
+            return redirect()->back()->withErrors('Question seven Roman three is required, please fill it to continue');
+        }elseif(empty(request()->question_seven_four)){
+            return redirect()->back()->withErrors('Question seven Roman four is required, please fill it to continue');
         }elseif(empty(request()->question_eight)){
             return redirect()->back()->withErrors('Question eight is required, please fill it to continue');
         }elseif(empty(request()->question_nine)){

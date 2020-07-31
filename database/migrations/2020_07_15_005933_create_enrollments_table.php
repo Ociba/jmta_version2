@@ -16,6 +16,7 @@ class CreateEnrollmentsTable extends Migration
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
             $table->string('email');
+            $table->integer('course_id');
             $table->string('first_name');
             $table->string('last_name');
             $table->enum('gender',['male','female','both']);

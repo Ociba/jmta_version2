@@ -16,6 +16,9 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     @include('layouts.breadcrumbs')
+                    @include('layouts.messages')
+                    <form action="/create-my-revelation" method="get">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6">
                             <label for="Revelation one" style="color:white">Revelation one</label>
@@ -50,10 +53,11 @@
                             <input type="number" name="day_number" id="" class="form-control">
                         </div>
                         <div class="col-lg-6"><br>
-                            <input type="submit" name="" id="" class="btn btn-primary" value="Submit">
+                            <input type="submit" class="btn btn-primary" value="Submit">
                         </div>
                     </div>
                 </div>
+                </form>
                 @include('layouts.footer')
             </div>
         </div>

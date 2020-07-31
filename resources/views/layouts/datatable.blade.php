@@ -11,147 +11,22 @@
             <thead>
                 <tr>
                     <th class="text-white">Name</th>
-                    <th class="text-white">Phone Number</th>
                     <th class="text-white">Date</th>
                     <th class="text-white">Email</th>
-                    @if(request()->route()->getName() == "All Trainees" || request()->route()->getName() == "New Trainees" || request()->route()->getName() == "Old Trainees")
                     <th class="text-white">Image</th>
                     <th class="text-white">Status</th>
-                    @else
-                    <th class="text-white"> Chapters Read</th>
                     <th class="text-white">View revelations</th>
-                    @endif
                 </tr>
             </thead>
             <tbody>
+            @foreach($all_revelations as $revelation)
                 <tr class="font-weight-bold">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
+                    <td>{{$revelation->name}}</td>
+                    <td>{{ $revelation->created_at->format('Y-m-d')}}</td>
+                    <td>{{$revelation->email}}</td>
+                    <td><a href="/get-individual-revelations/{{$revelation->id}}"><i class="fa fa-eye"></i></a></td>
                 </tr>
-                <tr class="text-white">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="font-weight-bold">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="text-white">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="font-weight-bold">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="text-white">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="font-weight-bold">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="text-white">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="font-weight-bold">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="text-white">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="font-weight-bold">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="text-white">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="font-weight-bold">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="text-white">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="font-weight-bold">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
-                <tr class="text-white">
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td><a href="/get-individual-revelations/1"><i class="fa fa-eye"></i></a></td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

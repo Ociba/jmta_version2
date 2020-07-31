@@ -49,17 +49,21 @@ class RevelationsController extends Controller
      * This function gets the revelations that have been posted my me as a user
      */
     protected function getIndividualRevelations($trainee_id){
-        return "all revelations";
-        $my_revelations = Revelations::find($trainee_id)->get();
-        //return $my_revelations;
+        $individual_revelations = Revelations::join('users','revelations.trainee_id','users.id')
+        ->where('revelations.id',$trainee_id)
+        ->select('revelations.*','revelations.id')
+        ->get();
+        return view('Admin.individual-revelations',compact('individual_revelations'));
     }
 
     /**
      * This function gets all the revelations that were posted by all trainees
      */
     protected function getAllRevelations(){
-        $all_revelations = Revelations::get();
-        return view('Admin.all_revelations');
+        $all_revelations = Revelations::join('users','revelations.trainee_id','users.id')
+        ->where('users.status','active')
+        ->select('users.name','users.email','users.created_at','users.id')->get();
+        return view('Admin.all_revelations',compact('all_revelations'));
     }
     /**
      * This function deletes the revelation, only the Admin does this

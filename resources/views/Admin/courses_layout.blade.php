@@ -52,96 +52,17 @@
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" id="right">
                                 <hr>
                                 <p style="text-align:left;">Up next</p>
+                                @foreach($course_unit as $course)
                                 <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
+                                <video style="width:120px; height:70px;" src="{{asset('videos/'.$course->course_unit)}}" controls="controls" preload="metadata">
                                 </video>
                                     <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 101</p>
-                                    <p class="text-left">Lecture 1</p>
-                                    <p>1.2k viewers | 2 years ago</p>
+                                     <p class="font-weight-bold text-left">{{$course->course_lectuere_name}}</p>
+                                    <p class="text-left">{{$course->description}}</p>
                                     </span>
                                 </div>
                                 <hr>
-                                <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
-                                </video>
-                                    <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 201</p>
-                                    <p class="text-left">Lecture 2</p>
-                                    <p>1.2k viewers | 2 years ago</p>
-                                    </span>
-                                </div>
-                                <hr>
-                                <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
-                                </video>
-                                    <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 301</p>
-                                    <p class="text-left">Lecture 3</p>
-                                    <p>1.2k viewers | 2 years ago</p>
-                                    </span>
-                                </div>
-                                <hr>
-                                <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
-                                </video>
-                                    <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 401</p>
-                                    <p class="text-left">Lecture 4</p>
-                                    <p>1.2k viewers | 2 years ago</p>
-                                    </span>
-                                </div>
-                                <hr>
-                                <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
-                                </video>
-                                    <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 501</p>
-                                    <p class="text-left">Lecture 5</p>
-                                    <p>1.2k viewers | 2 years ago</p>
-                                    </span>
-                                </div>
-                                <hr>
-                                <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
-                                </video>
-                                    <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 601</p>
-                                    <p class="text-left">Lecture 6</p>
-                                    <p>1.2k viewers | 2 years ago</p>
-                                    </span>
-                                </div>
-                                <hr>
-                                <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
-                                </video>
-                                    <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 701</p>
-                                    <p class="text-left">Lecture 7</p>
-                                    <p>1.2k viewers | 2 years ago</p>
-                                    </span>
-                                </div>
-                                <hr>
-                                <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
-                                </video>
-                                    <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 801</p>
-                                    <p class="text-left">Lecture 8</p>
-                                    <p>1.2k viewers | 2 years ago</p>
-                                    </span>
-                                </div>
-                                <hr>
-                                <div class="tool-card">
-                                <video style="width:120px; height:70px;" src="{{asset('videos/We Worship You.mp4')}}" controls="controls" preload="metadata">
-                                </video>
-                                    <span class="float-right">
-                                     <p class="font-weight-bold text-left">Self discovery 901</p>
-                                    <p class="text-left">Lecture 9</p>
-                                    <p>1.2k viewers | 2 years ago</p>
-                                    </span>
-                                </div>
-                                <hr>
+                                @endforeach
                             </div>
                         </div>
                     </div>

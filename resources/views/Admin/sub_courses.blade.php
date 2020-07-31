@@ -39,42 +39,19 @@
                      @include('layouts.messages')
 							<div class="row">
                         <!-- column -->
+						@foreach($sub_courses as $subcourse)
 								<div class="col-lg-4 col-md-6">
 									<!-- Card -->
 									<div class="card">
 										<div class="card-body">
-											<h4 class="card-title">Kingdom Dynamics 101</h4>
-											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-											<a href="/start-lectures/1" class="btn btn-primary">Start Course</a>
+											<h4 class="card-title">{{$subcourse->sub_course}}</h4>
+											<p class="card-text">{{$subcourse->description}}</p>
+											<a href="/start-lectures/{{$subcourse->id}}" class="btn btn-primary">Start Course</a>
 										</div>
 									</div>
 									<!-- Card -->
 								</div>
-								<!-- column -->
-								<!-- column -->
-								<div class="col-lg-4 col-md-6">
-									<!-- Card -->
-									<div class="card">
-										<div class="card-body">
-											<h4 class="card-title">Kingdom Dynamics 201</h4>
-											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-											<a href="/start-lectures/2" class="btn btn-primary">Start Course</a>
-										</div>
-									</div>
-									<!-- Card -->
-								</div>
-								<!-- column -->
-								<div class="col-lg-4 col-md-6">
-									<!-- Card -->
-									<div class="card">
-										<div class="card-body">
-											<h4 class="card-title">Kingdom Dynamics 301</h4>
-											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-											<a href="/start-lectures/3" class="btn btn-primary">Start Course</a>
-										</div>
-									</div>
-									<!-- Card -->
-								</div>
+								@endforeach
 							</div>
 							<!-- Row -->
 						</div>

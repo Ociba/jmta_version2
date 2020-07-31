@@ -17,11 +17,15 @@ class CreateAssessmentsTable extends Migration
             $table->id();
             $table->text('question_one');
             $table->text('question_two');
+            $table->text('question_if');
             $table->text('question_three');
             $table->text('question_four');
             $table->text('question_five');
             $table->text('question_six');
-            $table->text('question_seven');
+            $table->text('question_seven_one');
+            $table->text('question_seven_two');
+            $table->text('question_seven_three');
+            $table->text('question_seven_four');
             $table->text('question_eight');
             $table->text('question_nine');
             $table->text('question_ten');
