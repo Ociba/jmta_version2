@@ -19,31 +19,19 @@
         <!-- Row -->
         <div class="row">
             <!-- column -->
+            @foreach($courses as $course)
             <div class="col-lg-6 col-md-6">
                 <!-- Card -->
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Kingdom Dynamics</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/get-payment-methods" class="btn btn-primary">Enroll For This Course</a>
+                        <h4 class="card-title">{{$course->course_name}}</h4>
+                        <p class="card-text">{{$course->course_description}}</p>
+                        <a href="/get-payment-methods/{{$course->id}}" class="btn btn-primary">Enroll For This Course</a>
                     </div>
                 </div>
                 <!-- Card -->
             </div>
-            <!-- column -->
-            <!-- column -->
-            <div class="col-lg-6 col-md-6">
-                <!-- Card -->
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Destiny</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="/get-payment-methods" class="btn btn-primary">Enroll For This Course</a>
-                    </div>
-                </div>
-                <!-- Card -->
-            </div>
-            <!-- column -->
+            @endforeach
         </div>
         <!-- Row -->
     </div>

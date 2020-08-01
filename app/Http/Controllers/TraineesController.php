@@ -11,7 +11,7 @@ class TraineesController extends Controller
         $all_trainees           = $this->showAllTrainees();
         $number_of_new_trainees = $this->countNewTrainees();
         $number_of_old_trainees = $this->countOldTrainees();
-        return view('Admin.all_trainees',compact('all_trainees'));
+        return view('Admin.all_trainees',compact('all_trainees','number_of_old_trainees','number_of_new_trainees'));
     }
 
     protected function getNewTrainees(){
@@ -44,7 +44,9 @@ class TraineesController extends Controller
      * This function gets all the trainees
      */
     private function showAllTrainees(){
-        $all_trainees = Enrollment::get();
+        $all_trainees = Enrollment::join('courses','enrollments.course_id','courses.id')
+        ->select('enrollments.*','courses.course_name')
+        ->get();
         return $all_trainees;
     }
 
@@ -55,7 +57,6 @@ class TraineesController extends Controller
         $count_of_new_trainees = Enrollment::whereMonth('created_at',date('M'))->count();
         return $count_of_new_trainees;
     }
-
     /**
      * This function counts the old trainees
      */
@@ -68,27 +69,27 @@ class TraineesController extends Controller
      * This function suspends a trainee
      */
     protected function suspendTrainee($trainee_id){
-        $trainee_to_suspend = Enrollment::find($id)->update(array(
+        Enrollment::where('id',$trainee_id)->update(array(
             'attendance_status' => 'suspended'
         ));
         return redirect()->back()->withErrors('Trainee has been suspended successfully');
     }
 
     /**
-     * Tis function activates a suspended trainee
+     * This function activates a suspended trainee
      */
     protected function activateTrainee($trainee_id){
-        $trainee_to_suspend = Enrollment::find($id)->update(array(
-            'attendance_status' => 'active'
+        Enrollment::where('id',$trainee_id)->update(array(
+            'payment_status' => 'successful'
         ));
-        return redirect()->back()->withErrors('Trainee has been suspended successfully');
+        return redirect()->back()->withErrors('Trainee has been Activated successfully');
     }
 
     /**
      * This function calls the soft deletes when deleting a trainee
      */
     protected function deleteTrainee($trainee_id){
-        Enrollment::find($trainee_id)->delete();
+        Enrollment::where('id',$trainee_id)->delete();
         return redirect()->back()->withErrors("Trainee deletion was successfull");
     }
 

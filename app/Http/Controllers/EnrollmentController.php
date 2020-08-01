@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Enrollment;
 
 class EnrollmentController extends Controller
 {
     //creating an instance of payment
     public function __construct(){
         $this->payment_instance = new PaymentsController;
+        $this->authenticated_user_instance = new AuthenticatedUserController;
     }
 
     protected function getEnrollmentForm(){
+        if(in_array('Can view enrollment form', auth()->user()->getUserPermisions())){
         return view('Admin.enrollment_form');
+        }else{
+            abort('404');
+        }
     }
     /*
      *   this function created an enrollment form
@@ -20,8 +26,13 @@ class EnrollmentController extends Controller
     */
     private function enrollNewTrainee(){
         $this->payment_instance->makeAPayment();
+
+        $save_enrollment_image = request()->passport_photo;
+        $enrollment_original_name = $save_enrollment_image->getClientOriginalName();
+        $save_enrollment_image->move('enrollment-photos/',$enrollment_original_name);
+
         $enrollment = new Enrollment;
-        $enrollment->email = auth()->user()->email;
+        $enrollment->email = $this->authenticated_user_instance->getAuthenticatedUserEmail();
         $enrollment->first_name = request()->first_name;
         $enrollment->last_name = request()->last_name;
         $enrollment->gender  = request()->gender;
@@ -38,9 +49,10 @@ class EnrollmentController extends Controller
         $enrollment->profession = request()->profession;
         $enrollment->occupation = request()->occupation;
         $enrollment->payment_method = request()->payment_method;
-        $enrollment->passport_photo = request()->passport_photo;
+        $enrollment->passport_photo =$enrollment_original_name;
+        $enrollment->course_id      = request()->course_id;
         $enrollment->save();
-        return redirect()->back()->with('msg', 'Your enrollment was successfuly');
+        return redirect("/get-sub-courses/".request()->course_id)->with('msg', 'Your enrollment was successfuly recieved');
     }
     
     /**

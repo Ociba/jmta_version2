@@ -39,53 +39,19 @@
 							<!-- Row -->
 							<div class="row">
 								<!-- column -->
+								@foreach($lectures as $lecture)
 								<div class="col-lg-3 col-md-6">
 									<!-- Card -->
 									<div class="card">
 										<div class="card-body">
-											<h4 class="card-title">Self Discovery one</h4>
-											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-											<a href="/view-course/1" class="btn btn-primary">View Course</a>
+											<h4 class="card-title">{{$lecture->lecture}}</h4>
+											<p class="card-text">{{$lecture->description}}</p>
+											<a href="/view-course/{{$lecture->id}}" class="btn btn-primary">View Course</a>
 										</div>
 									</div>
 									<!-- Card -->
 								</div>
-								<!-- column -->
-								<!-- column -->
-								<div class="col-lg-3 col-md-6">
-									<!-- Card -->
-									<div class="card">
-										<div class="card-body">
-											<h4 class="card-title">Self Discovery two</h4>
-											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-											<a href="/view-course/2" class="btn btn-primary">View Course</a>
-										</div>
-									</div>
-									<!-- Card -->
-								</div>
-								<!-- column -->
-								<div class="col-lg-3 col-md-6">
-									<!-- Card -->
-									<div class="card">
-										<div class="card-body">
-											<h4 class="card-title">Self Discovery three</h4>
-											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-											<a href="/view-course/3" class="btn btn-primary">View Course</a>
-										</div>
-									</div>
-									<!-- Card -->
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-									<!-- Card -->
-									<div class="card">
-										<div class="card-body">
-											<h4 class="card-title">Self Discovery four</h4>
-											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-											<a href="/view-course/4" class="btn btn-primary">View Course</a>
-										</div>
-									</div>
-									<!-- Card -->
-								</div>
+								@endforeach
 							</div>
 							<!-- Row -->
 						</div>

@@ -24,6 +24,7 @@ class CreateRevelationsTable extends Migration
             $table->text('revelation_six');
             $table->text('revelation_seven');
             $table->integer('day_number');
+            $table->enum('status',['active','inactive','deleted'])->default('active');
             $table->timestamps();
         });
     }

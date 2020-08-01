@@ -36,3 +36,4 @@
     <!--alerts CSS -->
     <link href="{{asset('admin_pages/node_modules/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin_pages/css/pages/file-upload.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('admin_pages/node_modules/dropify/dist/css/dropify.min.css')}}">

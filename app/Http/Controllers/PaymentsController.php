@@ -9,7 +9,8 @@ class PaymentsController extends Controller
     /**
      * This function returns the payment methods
      */
-    protected function getPaymentMethod(){
+    protected function getPaymentMethod($id){
+        return redirect('/get-enrollment-form/'.$id);
         return view('Admin.payment_methods');
     }
     /**

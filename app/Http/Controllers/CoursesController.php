@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
+use App\Subcourse;
+use App\SubcourseLecture;
+use App\Courseunit;
 
 class CoursesController extends Controller
 {
@@ -13,23 +16,30 @@ class CoursesController extends Controller
     }
 
     protected function getCourses(){
-        return view('Admin.courses');
+        $courses = Course::get();
+        return view('Admin.courses', compact('courses'));
     }
     protected function getSubCourses(){
-        return view('Admin.sub_courses');
+        $sub_courses = Subcourse::join('courses','subcourses.course_id','courses.id')
+        ->select('courses.course_name', 'subcourses.*')->get();
+        return view('Admin.sub_courses', compact('sub_courses'));
     }
     protected function getLecture($id){
-        if($id>1){
-            return redirect()->back()->withErrors('Please complete Kingdom Dynamics 101 to continue');
+        if(SubcourseLecture::where('subcourse_id',$id)->where('status','!=','active')->exists()){
+            return redirect()->back()->withErrors('Please complete the previous course to continue');
+        }else{
+            $lectures = SubcourseLecture::where('subcourse_id',$id)->get();
+            return view('Admin.lecture_units',compact('lectures'));
         }
-        return view('Admin.lecture_units');
     }
 
     protected function viewCourse($id){
-        if($id>1){
-            return redirect()->back()->withErrors('Please complete Self Discovery one to continue');
+        if(Courseunit::where('subcourse_lecture_id', $id)->where('status','!=','active')->exists()){
+            return redirect()->back()->withErrors('Please complete the previous course to continue');
+        }else{
+            $course_unit =Courseunit::where('subcourse_lecture_id',$id)->get();
+        return view('Admin.courses_layout', compact('course_unit'));
         }
-        return view('Admin.courses_layout');
     }
 
     /**
