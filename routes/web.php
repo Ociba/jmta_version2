@@ -63,3 +63,7 @@ Route::get('/create-role','RolesController@createRole');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
