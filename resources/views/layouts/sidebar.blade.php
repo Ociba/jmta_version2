@@ -21,7 +21,9 @@
                     <a class="waves-effect waves-dark text-white" href="/get-assessment-form" aria-expanded="false"><i class="fa fa-file"></i><span class="hide-menu">Assessment Form</span></a>
                 </li>
                 @endif
+                @if(in_array('Can view Admin', auth()->user()->getUserPermisions()))
                 <li class="nav-small-cap text-left ml-4 text-white"> <h4>Admin</h4></li>
+                @endif
                 @if(in_array('Can view Bible marathon', auth()->user()->getUserPermisions()))
                 <li>
                     <a class="waves-effect waves-dark text-white" href="/get-all-bible-marathon-trainees" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Bible Marathon</span></a>
