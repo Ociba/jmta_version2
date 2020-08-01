@@ -7,6 +7,11 @@ use App\Revelations;
 
 class RevelationsController extends Controller
 {
+    //creating an instance of the authenticated user
+    public function __construct(){
+        $this->authenticated_user = new AuthenticatedUserController;
+    }
+
     protected function getRevelationsPage(){
         return view('Admin.my_revelations');
     }
@@ -20,7 +25,7 @@ class RevelationsController extends Controller
      */
     private function createRevelation(){
         $revelation = new Revelations;
-        $revelation->trainee_id    = request()->trainee_id;
+        $revelation->trainee_id       = $this->authenticated_user->getAuthenticatedUser();
         $revelation->revelation_one   = request()->revelation_one;
         $revelation->revelation_two   = request()->revelation_two;
         $revelation->revelation_three = request()->revelation_three;
@@ -28,6 +33,7 @@ class RevelationsController extends Controller
         $revelation->revelation_five  = request()->revelation_five;
         $revelation->revelation_six   = request()->revelation_six;
         $revelation->revelation_seven = request()->revelation_seven;
+        $revelation->day_number       = request()->day_number;
         $revelation->save();
         return redirect()->back()->with('msg','Thank you for posting todays revelation, looking forward to hearing from you tomorrow');
     }
@@ -42,17 +48,22 @@ class RevelationsController extends Controller
     /**
      * This function gets the revelations that have been posted my me as a user
      */
-    protected function getMyRevelations($trainee_id){
-        $my_revelations = Revelations::find($trainee_id)->get();
-        //return $my_revelations;
+    protected function getIndividualRevelations($trainee_id){
+        $individual_revelations = Revelations::join('users','revelations.trainee_id','users.id')
+        ->where('revelations.id',$trainee_id)
+        ->select('revelations.*','revelations.id')
+        ->get();
+        return view('Admin.individual-revelations',compact('individual_revelations'));
     }
 
     /**
      * This function gets all the revelations that were posted by all trainees
      */
     protected function getAllRevelations(){
-        $all_revelations = Revelations::get();
-        return view('Admin.all_students_revelations');
+        $all_revelations = Revelations::join('users','revelations.trainee_id','users.id')
+        ->where('users.status','active')
+        ->select('users.name','users.email','users.created_at','users.id')->get();
+        return view('Admin.all_revelations',compact('all_revelations'));
     }
     /**
      * This function deletes the revelation, only the Admin does this
@@ -87,6 +98,8 @@ class RevelationsController extends Controller
             return redirect()->back()->withErrors('please Enter the sixth revelation to continue');
         }elseif(empty(request()->revelation_seven)){
             return redirect()->back()->withErrors('please Enter the seventh revelation to continue');
+        }elseif(empty(request()->day_number)){
+            return redirect()->back()->withErrors('Please enter the number of days to continue');
         }else{
             return $this->createRevelation();
         }

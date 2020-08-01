@@ -5,10 +5,10 @@
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
-                        <h2 class="m-b-0">234</h2>
-                        <h6 class="text-muted m-b-0">New Clients</h6>
+                        <h2 class="m-b-0">283</h2>
+                        <h6 class="text-muted m-b-0">Total Trainees</h6>
                     </div>
-                    <div class="align-self-center display-6 ml-auto"><i class="text-success icon-Target-Market"></i></div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-success fa fa-users"></i></div>
                 </div>
             </div>
             <div class="progress">
@@ -23,10 +23,10 @@
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
-                        <h2 class="m-b-0">$6,759</h2>
-                        <h6 class="text-muted m-b-0">This Week</h6>
+                        <h2 class="m-b-0"></h2>
+                        <h6 class="text-muted m-b-0">New Trainees</h6>
                     </div>
-                    <div class="align-self-center display-6 ml-auto"><i class="text-info icon-Dollar-Sign"></i></div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-info fa fa-users"></i></div>
                 </div>
             </div>
             <div class="progress">
@@ -41,10 +41,10 @@
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
-                        <h2 class="m-b-0">2,356</h2>
-                        <h6 class="text-muted m-b-0">Emails Sent</h6>
+                        <h2 class="m-b-0"></h2>
+                        <h6 class="text-muted m-b-0">Old Trainees</h6>
                     </div>
-                    <div class="align-self-center display-6 ml-auto"><i class="text-primary icon-Inbox-Forward"></i></div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-primary fa fa-users"></i></div>
                 </div>
             </div>
             <div class="progress">
@@ -59,10 +59,10 @@
             <div class="card-body">
                 <div class="d-flex p-10 no-block">
                     <div class="align-slef-center">
-                        <h2 class="m-b-0">38</h2>
-                        <h6 class="text-muted m-b-0">Deals in Pipeline</h6>
+                        <h2 class="m-b-0">80</h2>
+                        <h6 class="text-muted m-b-0">Bible Marathon</h6>
                     </div>
-                    <div class="align-self-center display-6 ml-auto"><i class="text-danger icon-Contrast"></i></div>
+                    <div class="align-self-center display-6 ml-auto"><i class="text-danger fa fa-users"></i></div>
                 </div>
             </div>
             <div class="progress">

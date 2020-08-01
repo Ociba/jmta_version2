@@ -2,156 +2,31 @@
 <div class="col-12">
 <div class="card">
 <div class="card-body">
-    <h4 class="card-title">{{ request()->route()->getName() }}</h4>
+    <h4 class="card-title text-white">{{ request()->route()->getName() }}</h4>
     <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
-    <div class="table-responsive m-t-40">
+    <div class="table-responsive m-t-40 text-white">
         <table id="example23"
             class="display nowrap table table-hover table-striped table-bordered"
             cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>Date</th>
-                    <th>Email</th>
-                    @if(request()->route()->getName() == "All Trainees" || request()->route()->getName() == "New Trainees" || request()->route()->getName() == "Old Trainees")
-                    <th>Image</th>
-                    <th>Status</th>
-                    @else
-                    <th>Chapters Read</th>
-                    <th>Remaining chapters</th>
-                    @endif
+                    <th class="text-white">Name</th>
+                    <th class="text-white">Date</th>
+                    <th class="text-white">Email</th>
+                    <th class="text-white">Image</th>
+                    <th class="text-white">Status</th>
+                    <th class="text-white">View revelations</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
+            @foreach($all_revelations as $revelation)
+                <tr class="font-weight-bold">
+                    <td>{{$revelation->name}}</td>
+                    <td>{{ $revelation->created_at->format('Y-m-d')}}</td>
+                    <td>{{$revelation->email}}</td>
+                    <td><a href="/get-individual-revelations/{{$revelation->id}}"><i class="fa fa-eye"></i></a></td>
                 </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>Julius Ssemakula</td>
-                    <td>256 702913454</td>
-                    <td>{{ date('Y-m-d') }}</td>
-                    <td>julisema4@gmail.com</td>
-                    <td>10</td>
-                    <td>30</td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
