@@ -6,7 +6,10 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap text-left ml-4 text-white"><h4> Bible Marathon</h4></li>
                 <li>
-                    <a class="waves-effect waves-dark text-white" href="/get-my-revelations" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">My Revelations</span></a>
+                    <a class="waves-effect waves-dark text-white" href="/create-new-revelation" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">My Revelations</span></a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark text-white" href="/get-forum" aria-expanded="false"><i class="fab fa-rocketchat"></i><span class="hide-menu">Forum</span></a>
                 </li>
 
                 <li class="nav-small-cap text-left ml-4 text-white"><h4>Assessment</h4> </li>
@@ -15,7 +18,7 @@
                 </li>
                 <li class="nav-small-cap text-left ml-4 text-white"> <h4>Admin</h4></li>
                 <li>
-                    <a class="waves-effect waves-dark text-white" href="/get-all-bible-marathon" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Bible Marathon</span></a>
+                    <a class="waves-effect waves-dark text-white" href="/get-all-bible-marathon-trainees" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Bible Marathon</span></a>
                 </li>
                 <li>
                     <a class="has-arrow waves-effect waves-dark text-white" href="#" aria-expanded="false"><i class="icon-Windows-2"></i><span class="hide-menu">Trainees</span></a>

@@ -23,6 +23,7 @@ class CreateRevelationsTable extends Migration
             $table->text('revelation_five');
             $table->text('revelation_six');
             $table->text('revelation_seven');
+            $table->integer('day_number');
             $table->timestamps();
         });
     }
