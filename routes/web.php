@@ -28,7 +28,7 @@ Route::get('/suspend-trainees/{id}','TraineesController@suspendTrainee');
 Route::get('/approve-trainees/{id}','TraineesController@activateTrainee');
 Route::get('/delete-trainees/{id}','TraineesController@deleteTrainee');
 Route::get('/get-old-trainees','TraineesController@getOldTrainees')->name('Old Trainees');
-Route::get('/dashboard',function(){ return view('template');});
+Route::get('/dashboard',function(){ return redirect('/create-new-revelation');});
 Route::get('/get-enrollment-form/{id}','EnrollmentController@getEnrollmentForm')->name('Enrollment Form');
 Route::post('/create-enrollment-information','EnrollmentController@validateEnrollment');
 Route::get('/get-assessment-form','AssessmentControlller@getAssessmentForm')->name('Assessment Form');
@@ -61,5 +61,7 @@ Route::get('/create-role','RolesController@createRole');
 
 
 Auth::routes();
-
+Route::get('/',function(){
+    return redirect('/login');
+});
 Route::get('/home', 'HomeController@index')->name('home');

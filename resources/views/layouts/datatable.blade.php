@@ -13,8 +13,6 @@
                     <th class="text-white">Name</th>
                     <th class="text-white">Date</th>
                     <th class="text-white">Email</th>
-                    <th class="text-white">Image</th>
-                    <th class="text-white">Status</th>
                     <th class="text-white">View revelations</th>
                 </tr>
             </thead>
@@ -24,7 +22,7 @@
                     <td>{{$revelation->name}}</td>
                     <td>{{ $revelation->created_at->format('Y-m-d')}}</td>
                     <td>{{$revelation->email}}</td>
-                    <td><a href="/get-individual-revelations/{{$revelation->id}}"><i class="fa fa-eye"></i></a></td>
+                    <td><a href="/get-individual-revelations/{{$revelation->id}}">view revelations</a></td>
                 </tr>
             @endforeach
             </tbody>

@@ -13,6 +13,7 @@
                     <div class="row">
                     <div class="chat-rbox col-lg-12">
                         <ul class="chat-list p-20">
+                            @include('layouts.messages')
                             <!--chat Row -->
                             @foreach($chat_content as $chat)
                             @if($chat->user_id == 1)
@@ -21,12 +22,12 @@
                                     <h5>{{ $chat->name }}</h5>
                                     <div class="box bg-light-inverse">{{$chat->message}}</div>
                                 </div>
-                                <div class="chat-img"><img src="{{asset('admin_pages/images/users/5.jpg')}}" alt="user" /></div>
+                                <div class="chat-img"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user" /></div>
                                 <div class="chat-time">{{$chat->created_at->format('h:s a')}}</div>
                             </li>
                             @else
                             <li>
-                                <div class="chat-img"><img src="{{asset('admin_pages/images/users/2.jpg')}}" alt="user" /></div>
+                                <div class="chat-img"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user" /></div>
                                 <div class="chat-content">
                                     <h5>{{ $chat->name }}</h5>
                                     <div class="box bg-light-info">{{$chat->message}}</div>
@@ -58,17 +59,17 @@
                 <div class="chat-left-aside">
                     <div class="open-panel"><i class="ti-angle-right"></i></div>
                     <div class="chat-left-inner">
-                         <div class="p-20 b-b">
+                        <div class="p-20 b-b">
                             <h3 class="box-title">Upload Photo</h3>
                         </div>
                         <div class="col-lg-12 col-md-12">
-                        <form action="/upload-chat-photo" method="post">
+                        <form action="/upload-chat-photo" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card">
                                 <div class="card-body">
                                     <input type="file" id="input-file-now-custom-1" class="dropify" name="photo"/>
                                     <div class="text-center">
-                                      <button type="submit" class="btn btn-info btn-sm">Upload </button>
+                                        <button type="submit" class="btn btn-info btn-sm">Upload </button>
                                     </div>
                                 </div>
                             </div>
@@ -112,28 +113,28 @@
             <ul class="m-t-20 chatonline">
                 <li><b>Chat option</b></li>
                 <li>
-                    <a href="javascript:void(0)"><img src="{{asset('admin_pages/images/users/1.jpg')}}" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><img src="{{asset('admin_pages/images/users/2.jpg')}}" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><img src="{{asset('admin_pages/images/users/3.jpg')}}" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><img src="{{asset('admin_pages/images/users/4.jpg')}}" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><img src="{{asset('admin_pages/images/users/5.jpg')}}" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><img src="{{asset('admin_pages/images/users/6.jpg')}}" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><img src="{{asset('admin_pages/images/users/7.jpg')}}" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><img src="{{asset('admin_pages/images/users/8.jpg')}}" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                    <a href="javascript:void(0)"><img src="{{asset('trainees_images/'. auth()->user()->photo)}}" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
                 </li>
             </ul>
         </div>

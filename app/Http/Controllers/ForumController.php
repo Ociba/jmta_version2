@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Forum;
+use App\User;
 
 class ForumController extends Controller
 {
@@ -33,7 +34,13 @@ class ForumController extends Controller
         if(empty(request()->photo)){
             return redirect()->back()->withErrors('please attach a photo to continue');
         }else{
-            //save photo
+        $photo = request()->photo;
+        $photo_original_name = $photo->getClientOriginalName();
+        $photo->move('trainees_images/',$photo_original_name);
+        User::where('id',auth()->user()->id)->update(array(
+            'photo' => $photo_original_name
+        ));
+        return redirect()->back()->with('msg','Your profile picture has been uploaded');
         }
     }
 
