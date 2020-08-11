@@ -58,6 +58,8 @@ Route::get('/get_user_and_roles/{id}','RolesController@getAccountRoles')->name('
 Route::get('/assign-roles/{id}','RolesController@updateRole');
 Route::get('/add-role-form','RolesController@addRoleForm')->name('Add Role');
 Route::get('/create-role','RolesController@createRole');
+Route::get('/get-add-course','CoursesController@addCourseForm')->name('Add Course');
+Route::get('/add-course','CoursesController@validateCourse');
 
 
 Auth::routes();

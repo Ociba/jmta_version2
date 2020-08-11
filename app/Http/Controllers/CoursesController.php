@@ -37,9 +37,13 @@ class CoursesController extends Controller
         if(Courseunit::where('subcourse_lecture_id', $id)->where('status','!=','active')->exists()){
             return redirect()->back()->withErrors('Please complete the previous course to continue');
         }else{
-            $course_unit =Courseunit::where('subcourse_lecture_id',$id)->get();
+            $course_unit =Courseunit::join('subcourse_lectures','courseunits.subcourse_lecture_id','subcourse_lectures.id')->where('subcourse_lecture_id',$id)
+            ->select('courseunits.course_unit','courseunits.description','subcourse_lectures.lecture')->get();
         return view('Admin.courses_layout', compact('course_unit'));
         }
+    }
+    protected function addCourseForm(){
+        return view('Admin.add_course');
     }
 
     /**
