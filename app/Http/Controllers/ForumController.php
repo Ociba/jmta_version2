@@ -48,7 +48,7 @@ class ForumController extends Controller
      * This message shows the chat content
      */
     private function showChatContent(){
-        $chat_content = Forum::get();
+        $chat_content = Forum::join('users','users.id','forums.user_id')->get();
         return $chat_content;
     }
     /**

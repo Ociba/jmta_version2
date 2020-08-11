@@ -21,7 +21,9 @@
                     <a class="waves-effect waves-dark text-white" href="/get-assessment-form" aria-expanded="false"><i class="fa fa-file"></i><span class="hide-menu">Assessment Form</span></a>
                 </li>
                 @endif
+                @if(in_array('Can view Admin', auth()->user()->getUserPermisions()))
                 <li class="nav-small-cap text-left ml-4 text-white"> <h4>Admin</h4></li>
+                @endif
                 @if(in_array('Can view Bible marathon', auth()->user()->getUserPermisions()))
                 <li>
                     <a class="waves-effect waves-dark text-white" href="/get-all-bible-marathon-trainees" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Bible Marathon</span></a>
@@ -37,11 +39,21 @@
                     </ul>
                 </li>
                 @endif
+                <li>
+                    <a class="has-arrow waves-effect waves-dark text-white" href="#" aria-expanded="false"><i class="icon-Windows-2"></i><span class="hide-menu"> Course</span></a>
+                    <ul aria-expanded="false" class="collapse">
                 @if(in_array('Can view course', auth()->user()->getUserPermisions()))
                 <li>
-                    <a class="waves-effect waves-dark text-white" href="/get-courses" aria-expanded="false"><i class="fa fa-folder"></i><span class="hide-menu">Courses</span></a>
+                    <a class="waves-effect waves-dark text-white" href="/get-courses" aria-expanded="false"><span class="hide-menu"> View Course</span></a>
                 </li>
                 @endif
+                @if(in_array('Can add course', auth()->user()->getUserPermisions()))
+                <li>
+                    <a class="waves-effect waves-dark text-white" href="/get-add-course" aria-expanded="false"><span class="hide-menu"> Add Course</span></a>
+                </li>
+                @endif
+                </ul>
+                </li>
                 <li>
                     <a class="has-arrow waves-effect waves-dark text-white" href="#" aria-expanded="false"><i class="icon-Windows-2"></i><span class="hide-menu">Assignment</span></a>
                     <ul aria-expanded="false" class="collapse">

@@ -13,6 +13,10 @@
                     <th class="text-white">Name</th>
                     <th class="text-white">Date</th>
                     <th class="text-white">Email</th>
+                    {{--
+                    <th class="text-white">Image</th>
+                    <th class="text-white">Status</th>
+                    --}}
                     <th class="text-white">View revelations</th>
                 </tr>
             </thead>
