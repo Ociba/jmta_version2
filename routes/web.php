@@ -59,7 +59,9 @@ Route::get('/assign-roles/{id}','RolesController@updateRole');
 Route::get('/add-role-form','RolesController@addRoleForm')->name('Add Role');
 Route::get('/create-role','RolesController@createRole');
 Route::get('/get-add-course','CoursesController@addCourseForm')->name('Add Course');
-Route::get('/add-course','CoursesController@validateCourse');
+Route::post('/add-course','CoursesController@validateCourse');
+Route::get('/add-course-units','CoursesController@addCourseUnit')->name('Add Course units');
+Route::get('create-course-unit','CoursesController@validateCourseUnits');
 
 
 Auth::routes();

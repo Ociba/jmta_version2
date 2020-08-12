@@ -21,16 +21,20 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form class="mt-4" action="/add-course" method="get">
+                                <form class="mt-4" action="/add-course" method="post" enctype="multipart/form-data">
                                 @csrf
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Add Course</label>
+                                        <label class="text-white" for="exampleInputPassword1">Add Course</label>
                                         <input type="text" class="form-control"  name="course_name" placeholder="" required autocomplete="off">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Course Description</label>
+                                        <label class="text-white" for="exampleInputPassword1">Course Description</label>
                                         <input type="text" class="form-control"  name="course_description" placeholder="" required autocomplete="off">
                                     </div>
+                                        <div class="form-group">
+                                            <label class="text-white" for="wphoneNumber2">Attach Video :</label>
+                                            <input type="file" class="form-control" name="video" id="wphoneumber2" required> 
+                                        </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>

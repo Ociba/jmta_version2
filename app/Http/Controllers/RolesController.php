@@ -67,7 +67,7 @@ class RolesController extends Controller
         return view('Admin.account_setting_roles', compact('display_roles','get_user','get_my_role'));
     }
     protected function getPermissionInCheckboxes(){
-        $display_all_permissions =Permission::paginate('10');
+        $display_all_permissions =Permission::get();
         return view('Admin.permissions', compact('display_all_permissions'));
     }
     protected function assignPermission($id, Request $request){
@@ -86,7 +86,7 @@ class RolesController extends Controller
                     ));
                 }
             }
-        return Redirect()->back()->with('message',"Permission(s) added Successfully");
+        return Redirect()->back()->with('msg',"Permission(s) added Successfully");
     }
     protected function unsignPermission($id){
         permissionrole::where('permission_id',$id)->delete();

@@ -52,6 +52,11 @@
                     <a class="waves-effect waves-dark text-white" href="/get-add-course" aria-expanded="false"><span class="hide-menu"> Add Course</span></a>
                 </li>
                 @endif
+                @if(in_array('Can add course Units', auth()->user()->getUserPermisions()))
+                <li>
+                <a class="waves-effect waves-dark text-white" href="/add-course-units" aria-expanded="false"><span class="hide-menu"> Add Course Units</span></a>
+                </li>
+                @endif
                 </ul>
                 </li>
                 <li>

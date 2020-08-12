@@ -29,11 +29,6 @@
                                     <div class="form-group row">
                                         <ul class="list-unstyled col-lg-12 col-md-12 col-xs-12 col-sm-12" id="myDiv">
                                             <li><input type="checkbox" id="select_all"/> All Permissions</li>
-                                            @if ($display_all_permissions->currentPage() > 1)
-                                            @php($i =  1 + (($display_all_permissions->currentPage() - 1) * $display_all_permissions->perPage()))
-                                            @else
-                                            @php($i = 1)
-                                            @endif
                                             @foreach($display_all_permissions as $get_permission)
                                             <div class="checkbox">
                                                 <label>
@@ -41,11 +36,6 @@
                                                 </label>
                                             </div>
                                             @endforeach
-                                            @if(isset($search_query))
-                                        {{ $display_all_permissions->appends(['name' => $search_query])->links() }}
-                                        @else
-                                        {{ $display_all_permissions->links() }}
-                                        @endif
                                         </ul>
                                     </div>
                                     <div class="form-group row">

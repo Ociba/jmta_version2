@@ -23,7 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(in_array('Can view dashboard', auth()->user()->getUserPermisions())){
         return view('template');
+        }else{
+            redirect('/get-my-revelations');
+        }
 
     }
 }

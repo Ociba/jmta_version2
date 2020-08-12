@@ -37,22 +37,53 @@ class CoursesController extends Controller
         if(Courseunit::where('subcourse_lecture_id', $id)->where('status','!=','active')->exists()){
             return redirect()->back()->withErrors('Please complete the previous course to continue');
         }else{
-            $course_unit =Courseunit::join('subcourse_lectures','courseunits.subcourse_lecture_id','subcourse_lectures.id')->where('subcourse_lecture_id',$id)
-            ->select('courseunits.course_unit','courseunits.description','subcourse_lectures.lecture')->get();
+            $course_unit =Courseunit::join('subcourse_lectures','courseunits.subcourse_lecture_id','subcourse_lectures.id')
+            ->join('courses','courseunits.course_id','courses.id')->where('subcourse_lecture_id',$id)
+            ->select('courseunits.course_unit','courseunits.description','subcourse_lectures.lecture','courses.video','courses.course_name','courseunits.id')->get();
         return view('Admin.courses_layout', compact('course_unit'));
         }
     }
     protected function addCourseForm(){
         return view('Admin.add_course');
     }
+    protected function addCourseUnit(){
+        $course = Course::get();
+        $sub_course_lectures = SubcourseLecture::get();
+        return view('Admin.add_course_unit',compact('course','sub_course_lectures')); 
+    }
+    /**create course units */
+    private function createCourseUnit(){
+        $course = new Courseunit;
+        $course->subcourse_lecture_id  = request()->lecture;
+        $course->description = request()->description;
+        $course->course_unit =request()->course_unit;
+        $course->course_id      = request()->course_name;
+        $course->save();
+        return redirect()->back()->with('msg','A new course unit has been created');
+    }
+    /** validate course units */
+    protected function validateCourseUnits(){
+        if(empty(request()->description)){
+            return redirect()->back()->withErrors('Course Description is required to continue');
+        }elseif(empty(request()->course_unit)){
+                return redirect()->back()->withErrors('Course Unit is required to continue');
+        }else{
+            return $this->createCourseUnit();
+        }
+    }
 
     /**
      * Any user with a role of creating a course can create it
      */
     private function createCourse(){
+        $save_course_video = request()->video;
+        $video_original_name = $save_course_video->getClientOriginalName();
+        $save_course_video->move('course-video/',$video_original_name);
+
         $course = new Course;
         $course->course_name = request()->course_name;
         $course->course_description = request()->course_description;
+        $course->video = $video_original_name;
         $course->created_by = $this->authenticated_user->getAuthenticatedUser();
         $course->save();
         return redirect()->back()->with('msg','A new course has been created');
@@ -66,6 +97,8 @@ class CoursesController extends Controller
             return redirect()->back()->withErrors("Course name is needed, Please enter it to continue");
         }elseif(empty(request()->course_description)){
             return redirect()->back()->withErrors('Course Description is required to continue');
+        }elseif(empty(request()->video)){
+            return redirect()->back()->withErrors("Please attach your course video to continue");
         }else{
             return $this->createCourse();
         }

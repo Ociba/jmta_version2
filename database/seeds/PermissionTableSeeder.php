@@ -16,7 +16,7 @@ class PermissionTableSeeder extends Seeder
         $permissions = ['Can view dashboard','Can view course','Can view course content','Can view account settings','Can add course','Can view enrollment form',
         'Can view revelation','Can view assessment form','Can view Bible marathon','Can view Forum','Can view trainees','Can view assignment results',
         'Can view assignments','Can view assignment actions','Can add assignment marks','Can view assignment form',
-        'Can view assignment answer form','Can view Admin'];
+        'Can view assignment answer form','Can view Admin','Can add course Units'];
         for($i=0; $i < count($permissions); $i++){
             $permission = new Permission();
             if(Permission::where("id",$i)->exists()){

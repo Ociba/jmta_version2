@@ -17,6 +17,7 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('course_name');
             $table->string('course_description');
+            $table->string('video');
             $table->integer('created_by');
             $table->integer('updated_by')->nullable();
             $table->softDeletes('deleted_at')->nullable();
