@@ -228,7 +228,7 @@
                                         <div class="dw-user-box col-12">
                                             <div class="u-text">
                                                 <div class="has-success">
-                                                    <a href="/view-course/2" class="text-white">{{$course->lecture}}</a> 
+                                                    <a href="/view-course/{{request()->route()->id}}" class="text-white">{{$course->lecture}}</a> 
                                                 </div>
                                                 <div class="has-success">
                                                     <a href="/view-course/2" class="text-white">James Ociba</a>
@@ -241,96 +241,7 @@
                                     </li>
                                 </ul>
                                 <hr>
-                                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span style="color:white;">Understanding of kingdom Dynamics</span></a>
-                                <ul class="collapse list-unstyled m-2" id="homeSubmenu">
-                                    <li>
-                                        <div class="dw-user-box col-12">
-                                            <div class="u-text">
-                                                <div class="has-success">
-                                                    <div class="checkbox">
-                                                        <label>
-                                                        <input id="checkboxSuccess" value="option1" type="checkbox">
-                                                        Julius Ssemakula </label>
-                                                    </div>
-                                                    <div class="has-success">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                            <input id="checkboxSuccess" value="option1" type="checkbox">
-                                                            James Ociba</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="has-success">
-                                                        <div class="checkbox">
-                                                            <label>
-                                                            <input id="checkboxSuccess" value="option1" type="checkbox">
-                                                            Aaron Ojinga Ociba</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </li>
-                                </ul>
-                                <hr>
-                                <a href="#chapter3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span style="color:white;">Analysing more on Kingdom Dynamics</span></a>
-                                <ul class="collapse list-unstyled m-2" id="chapter3Submenu">
-                                <li>
-                                <div class="dw-user-box col-12">
-                                <div class="u-text">
-                                <div class="has-success">
-                                <div class="checkbox">
-                                <label>
-                                <input id="checkboxSuccess" value="option1" type="checkbox">
-                                Julius Ssemakula </label>
-                                </div>
-                                <div class="has-success">
-                                <div class="checkbox">
-                                <label>
-                                <input id="checkboxSuccess" value="option1" type="checkbox">
-                                James Ociba</label>
-                                </div>
-                                </div>
-                                <div class="has-success">
-                                <div class="checkbox">
-                                <label>
-                                <input id="checkboxSuccess" value="option1" type="checkbox">
-                                Aaron Ojinga Ociba</label>
-                                </div>
-                                </div>
-                                </div>
-                                </div>
-                                </li>
-                                </ul>
-                                <hr>
-                                <a href="#chapter4Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span style="color:white;">Summary on the Kingdom Dynamics</span></a>
-                                <ul class="collapse list-unstyled m-2" id="chapter4Submenu">
-                                <li>
-                                <div class="dw-user-box col-12">
-                                <div class="u-text">
-                                <div class="has-success">
-                                <div class="checkbox">
-                                <label>
-                                <input id="checkboxSuccess" value="option1" type="checkbox">
-                                Julius Ssemakula </label>
-                                </div>
-                                <div class="has-success">
-                                <div class="checkbox">
-                                <label>
-                                <input id="checkboxSuccess" value="option1" type="checkbox">
-                                James Ociba</label>
-                                </div>
-                                </div>
-                                <div class="has-success">
-                                <div class="checkbox">
-                                <label>
-                                <input id="checkboxSuccess" value="option1" type="checkbox">
-                                Aaron Ojinga Ociba</label>
-                                </div>
-                                </div>
-                                </div>
-                                </div>
-                                </li>
-                                </ul>
-                                <hr>
+                                
                                 </div>
                                 </div>
                                 </div>
