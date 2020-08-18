@@ -21,7 +21,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form class="mt-4" action="/create-course-unit" method="get">
+                                <form class="mt-4" action="/create-course-unit" method="post" enctype="multipart/form-data">
                                 @csrf
                                     <div class="form-group">
                                         <label class="text-white" for="exampleInputPassword1">course unit</label>
@@ -40,13 +40,9 @@
                                         <input type="text" class="form-control"  name="description" placeholder="" required autocomplete="off">
                                     </div>
                                     <div class="form-group">
-                                        <label class="text-white">subcourse lecture</label>
-                                            <select class="form-control custom-select" name="lecture" required>
-                                            @foreach($sub_course_lectures as $sub_courses)
-                                                <option value="{{$sub_courses->id}}">{{$sub_courses->lecture}}</option>
-                                            @endforeach
-                                            </select>
-                                    </div>
+                                            <label class="text-white" for="wphoneNumber2">Attach Video :</label>
+                                            <input type="file" class="form-control" name="video" id="wphoneumber2" required> 
+                                        </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>

@@ -49,8 +49,6 @@
     <script src="{{asset('admin_pages/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js')}}"></script>
     <script src="{{asset('admin_pages/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js')}}"></script>
     <!-- end - This is for export functionality only -->
-
-
 <script>
     $(function () {
         $('#myTable').DataTable();

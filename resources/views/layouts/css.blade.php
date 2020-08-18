@@ -27,6 +27,7 @@
     <link href="{{asset('admin_pages/css/pages/table-pages.css')}}" rel="stylesheet">
     <link href="{{asset('admin_pages/css/pages/chat-app-page.css')}}" rel="stylesheet">
     <link href="{{asset('scss/icons/font-awesome/css/fontawesome-all.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('admin_pages/font-awesome/css/font-awesome.min.css')}}">
     <link href="{{asset('scss/icons/flag-icon-css/flags')}}" rel="stylesheet">
     <link href="{{asset('scss/icons/iconmind/iconmind.css')}}" rel="stylesheet">
     <link href="{{asset('scss/icons/material-design-iconic-font/css/materialdesignicons.min.css')}}" rel="stylesheet">

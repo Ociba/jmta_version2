@@ -40,6 +40,7 @@ class CreateAssessmentsTable extends Migration
             $table->text('question_nineteen');
             $table->text('question_twenty');
             $table->integer('trainee_id');
+            $table->string('video_recording');
             $table->timestamps();
         });
     }

@@ -56,15 +56,13 @@ class AssignmentController extends Controller
         $assignment->save();
         return redirect()->back()->with('msg','Assignment has been uploaded Successfully');
     }
-    // protected function validateAssignment(){
-    //     if(empty(request()->lecture)){
-    //         return redirect()->back()->withErrors("Lecture name is needed");
-    //     }elseif(empty(request()->assignment)){
-    //         return redirect()->back()->withErrors('Assignment file is needed');
-    //     }else{
-    //         return $this->createAssignment();
-    //     }
-    // }
+    protected function getMyAssignmentResults($user_id){
+        $get_my_assignment_results =Answer::join('users','answers.user_id','users.id')
+        ->join('assignments','answers.assignment_id','assignments.id')
+        ->where('answers.user_id',auth()->user()->id)
+        ->select('users.name','users.email','assignments.assignment','answers.mark','answers.answer')->get();
+        return view('Admin.my_assignment_results',compact('get_my_assignment_results'));
+    }
     private function createAssignmentAnswer(){
         $Assignment_answer = request()->answer;
         $answer_original_name = $Assignment_answer->getClientOriginalName();

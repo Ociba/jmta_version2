@@ -15,7 +15,7 @@ class RolesController extends Controller
     protected function getRoleWithUsers(){
         $get_all_users_with_roles =User::join('roles','users.role_id','roles.id')
         ->where('users.status','active')
-        ->select('users.name','users.email','roles.role','users.id')
+        ->select('users.name','users.email','roles.role','roles.id')
         ->get();
         return view('Admin.all_users', compact('get_all_users_with_roles'));
     }
@@ -50,7 +50,10 @@ class RolesController extends Controller
         return view('Admin.permission_role', compact('display_user','get_selected_role','get_my_role'));
     }
     protected function getPermissionRole($id){
-        $get_selected_role = User::join('roles','users.role_id','roles.id')->where('users.id',$id)->get();
+        $get_selected_role = User::join('roles','users.role_id','roles.id')
+        ->where('roles.id',$id)
+        ->groupBy('roles.id')
+        ->get();
         $get_all_permissions = PermissionRole::join('roles','permission_roles.role_id','roles.id')
         ->join('permissions','permission_roles.permission_id','permissions.id','permissions.id')
         ->where('roles.id',$id)

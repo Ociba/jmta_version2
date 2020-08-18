@@ -15,18 +15,18 @@
                         <ul class="chat-list p-20">
                             <!--chat Row -->
                             @foreach($chat_content as $chat)
-                            @if($chat->user_id == 1)
+                            @if($chat->user_id == auth()->user()->id)
                             <li class="reverse">
                                 <div class="chat-content">
                                     <h5>{{ $chat->name }}</h5>
                                     <div class="box bg-light-inverse">{{$chat->message}}</div>
                                 </div>
-                                <div class="chat-img"><img src="{{asset('admin_pages/images/users/5.jpg')}}" alt="user" /></div>
+                                <div class="chat-img"><img src="{{asset('forum-photos/'.auth()->user()->photo)}}" alt="user" /></div>
                                 <div class="chat-time">{{$chat->created_at->format('h:s a')}}</div>
                             </li>
                             @else
                             <li>
-                                <div class="chat-img"><img src="{{asset('admin_pages/images/users/2.jpg')}}" alt="user" /></div>
+                                <div class="chat-img"><img src="{{asset('forum-photos/'.$chat->photo)}}" alt="user" /></div>
                                 <div class="chat-content">
                                     <h5>{{ $chat->name }}</h5>
                                     <div class="box bg-light-info">{{$chat->message}}</div>
@@ -45,7 +45,7 @@
                     @csrf
                         <div class="row">
                             <div class="col-8">
-                                <textarea placeholder="Type your comment here" name="message" class="form-control b-0"></textarea>
+                                <textarea placeholder="Type your comment here" name="message" class="form-control b-0" required></textarea>
                             </div>
                             <div class="col-4 text-right">
                                 <button type="submit" class="btn btn-info btn-circle btn-lg"><i class="far fa-paper-plane"></i> </button>
@@ -62,11 +62,11 @@
                             <h3 class="box-title">Upload Photo</h3>
                         </div>
                         <div class="col-lg-12 col-md-12">
-                        <form action="/upload-chat-photo" method="post">
+                        <form action="/upload-chat-photo/{{ auth()->user()->id}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card">
                                 <div class="card-body">
-                                    <input type="file" id="input-file-now-custom-1" class="dropify" name="photo"/>
+                                    <input type="file" id="input-file-now-custom-1" class="dropify" name="photo" required/>
                                     <div class="text-center">
                                       <button type="submit" class="btn btn-info btn-sm">Upload </button>
                                     </div>

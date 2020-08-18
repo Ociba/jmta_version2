@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Assessment;
+use App\Revelations;
 
 class AssessmentControlller extends Controller
 {
@@ -12,8 +13,20 @@ class AssessmentControlller extends Controller
         $this->authenticated_user = new AuthenticatedUserController;
     }
     //This function returns the assessment form
-    protected function getAssessmentForm(){
-        return view('Admin.assessment_form');
+    protected function getAssessmentForm($trainee_id){
+        if($this->totalRevelationSubmitted($trainee_id) < 40 && !in_array('Can view assessment form', auth()->user()->getUserPermisions())){
+            return redirect()->back()->withErrors('Please complete the all 40 times revelation to continue');
+        }else{
+            return view('Admin.assessment_form');
+        }
+    }
+    /**
+     * This function is for validating users to see assessment form if they have  submitted 40 times revelations
+     */
+    private function totalRevelationSubmitted($trainee_id){
+        $count_times_revelations_submitted =Revelations::join('users','revelations.trainee_id','users.id')
+        ->where('revelations.trainee_id',$trainee_id)->count();
+        return $count_times_revelations_submitted;
     }
 
     /**
@@ -54,6 +67,34 @@ class AssessmentControlller extends Controller
         $assessment->trainee_id         = $this->authenticated_user->getAuthenticatedUser();
         $assessment->save();
         return redirect('/get-courses')->with('msg','Your assessment has been recieved. we are glad you have decided to come for the accademy');
+    }
+    /**
+     * This function retrieve assessment answers information
+     */
+    protected function getAssessmentAnswers(){
+        $all_assements = Assessment::join('users','assessments.trainee_id','users.id')
+        ->where('assessments.status','active')
+        ->select('users.name','users.created_at','users.email','assessments.id')->get();
+        return view('Admin.assessments_answers', compact('all_assements'));
+    }
+    /**
+     * This function displays individual assessment answers
+     */
+    protected function getIndividualAssessmentAnswers($trainee_id){
+        $individual_assessment_answers = Assessment::join('users','assessments.trainee_id','users.id')
+        ->where('assessments.trainee_id',$trainee_id)
+        ->select('assessments.*','assessments.id')
+        ->get();
+        return view('Admin.individual-assessment',compact('individual_assessment_answers'));
+    }
+    /**
+     * This function retrieves assessment for logged in user
+     */
+    protected function getMyAssessmentAnswers($trainee_id){
+        $my_assessment = Assessment::join('users','assessments.trainee_id','users.id')
+        ->where('assessments.trainee_id',auth()->user()->id)
+        ->select('users.name','users.email','users.created_at','assessments.id')->get();
+        return view('Admin.my_assessment',compact('my_assessment'));
     }
 
     /**

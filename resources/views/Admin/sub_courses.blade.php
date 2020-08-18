@@ -19,7 +19,7 @@
 					<!-- Row -->
 					<div class="row">
 						<div class="col-12">
-							<h4 class="d-inline">Sub Courses</h4>
+							<h4 class="d-inline">Course Units</h4>
 							<p></p>
 							<div id="code1" class="collapse">
 								<div class="highlight">
@@ -39,14 +39,14 @@
                      @include('layouts.messages')
 							<div class="row">
                         <!-- column -->
-						@foreach($sub_courses as $subcourse)
+						@foreach($get_course_units as $course_units)
 								<div class="col-lg-4 col-md-6">
 									<!-- Card -->
 									<div class="card">
 										<div class="card-body">
-											<h4 class="card-title">{{$subcourse->sub_course}}</h4>
-											<p class="card-text">{{$subcourse->description}}</p>
-											<a href="/start-lectures/{{$subcourse->id}}" class="btn btn-primary">Start Course</a>
+											<h4 class="card-title">{{$course_units->course_unit}}</h4>
+											<p class="card-text">{{$course_units->description}}</p>
+											<a href="/start-lectures/{{$course_units->id}}" class="btn btn-primary">Start Course</a>
 										</div>
 									</div>
 									<!-- Card -->

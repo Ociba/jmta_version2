@@ -26,7 +26,7 @@ class HomeController extends Controller
         if(in_array('Can view dashboard', auth()->user()->getUserPermisions())){
         return view('template');
         }else{
-            redirect('/get-my-revelations');
+           return redirect('/create-new-revelation');
         }
 
     }

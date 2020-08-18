@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class AuthenticatedUserController extends Controller
 {
     public function getAuthenticatedUser(){
-        return 1;
+        return auth()->user()->id;
     }
 
     public function getAuthenticatedUserEmail(){
-        return 'julisema4@gmail.com';
+        return auth()->user()->id;
     }
 }

@@ -12,8 +12,14 @@ class RevelationsController extends Controller
         $this->authenticated_user = new AuthenticatedUserController;
     }
 
-    protected function getRevelationsPage(){
-        return view('Admin.my_revelations');
+    /**
+     * This function is for individual evaluation details
+     */
+    protected function getMyRevelations($trainee_id){
+        $my_revelations = Revelations::join('users','revelations.trainee_id','users.id')
+        ->where('revelations.trainee_id',auth()->user()->id)
+        ->select('users.name','users.email','users.created_at','revelations.id')->get();
+        return view('Admin.my_revelations',compact('my_revelations'));
     }
 
     protected function getRevelationsForm(){
@@ -44,13 +50,12 @@ class RevelationsController extends Controller
     private function congulatulateTrainees(){
         return redirect('/')->with('msg','Wow, Congratulations. You have reached the tenth day of your bible marathon');
     }
-
     /**
      * This function gets the revelations that have been posted my me as a user
      */
     protected function getIndividualRevelations($trainee_id){
         $individual_revelations = Revelations::join('users','revelations.trainee_id','users.id')
-        ->where('revelations.id',$trainee_id)
+        ->where('revelations.trainee_id',$trainee_id)
         ->select('revelations.*','revelations.id')
         ->get();
         return view('Admin.individual-revelations',compact('individual_revelations'));
@@ -100,6 +105,9 @@ class RevelationsController extends Controller
             return redirect()->back()->withErrors('please Enter the seventh revelation to continue');
         }elseif(empty(request()->day_number)){
             return redirect()->back()->withErrors('Please enter the number of days to continue');
+        }elseif(Revelations::where('day_number', request()->day_number)->where('revelations.trainee_id',auth()->user()->id)->exists())
+        {
+            return Redirect()->back()->withErrors('Please you already submitted for this day');
         }else{
             return $this->createRevelation();
         }

@@ -16,6 +16,7 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     @include('layouts.breadcrumbs')
+                    @include('layouts.messages')
                     <div class="row">
                     <div class="col-12">
                     <div class="card">

@@ -74,7 +74,7 @@
 @endsection
 --}}
 @include('layouts.css')
-<div class="login-box">
+<div class="login-box" style="background-image: url('..img/test.JPG');">
   <div class="login-box-body">
     <h3 class="login-box-msg">Sign In</h3>
     <form method="POST" action="{{ route('login') }}">

@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','role_id', 'password',
+        'name', 'email','role_id', 'password','photo',
     ];
 
     /**
@@ -49,4 +49,34 @@ class User extends Authenticatable
         }
         return $empty_permissions_array;
     }
+    public function getLoggedInUserImage(){
+        $user_logo = User::where('id', '=', $this->id)->value('photo');
+        if(empty($user_logo)){
+            $user_logo = 'logo.jpg';
+        }
+        return $user_logo;
+     }
+    
+    /**
+     * This function add all the trainees
+     */
+    public function allTrainees(){
+        $all_trainees =$count_of_new_trainees + $count_of_old_trainees;
+        return $all_trainees;
+    }
+     /**
+     * This function counts the new trainees
+     */
+    public  function countNewTrainees(){
+        $count_of_new_trainees = Enrollment::whereMonth('created_at',date('M'))->count();
+        return $count_of_new_trainees;
+    }
+    /**
+     * This function counts the old trainees
+     */
+    public function countOldTrainees(){
+        $count_of_old_trainees = Enrollment::whereMonth('created_at','!=',date('M'))->count();
+        return $count_of_old_trainees;
+    }
+
 }

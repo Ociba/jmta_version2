@@ -16,7 +16,7 @@
                          <!-- dark Logo text -->
                          {{-- <img src="{{asset('admin_pages/images/logo.jpg')}}" alt="homepage" class="dark-logo" /> --}}
                          <!-- Light Logo text --> 
-                         <img src="{{asset('admin_pages/images/logo.jpg')}}" class="light-logo mt-2" alt="homepage" style="height:80px;width:200px"/></span> </a>
+                         <img src="{{asset('admin_pages/images/logo.jpg')}}" class="light-logo text-center mt-1 mb-1 ml-4" alt="homepage" style="height:60px;width:60px;border-radius:50%;"/></span> </a>
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
@@ -57,15 +57,15 @@
                 <!-- Profile -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown u-pro">
-                    <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('admin_pages/images/users/1.jpg')}}" alt="user" class="" /> <span class="hidden-md-down">Julius Ssemakula &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img style="border-radius:50%; width:30px; height:30px;" src="{{asset('forum-photos/'.auth()->user()->getLoggedInUserImage())}}" alt="user" class="" /> <span class="hidden-md-down">{{auth()->user()->name}} &nbsp;<i class="fa fa-angle-down"></i></span> </a>
                     <div class="dropdown-menu dropdown-menu-right animated flipInY">
                         <ul class="dropdown-user">
                             <li>
                                 <div class="dw-user-box">
-                                    <div class="u-img"><img src="{{asset('admin_pages/images/users/1.jpg')}}" alt="user"></div>
+                                    <div class="u-img"><img src="{{asset('forum-photos/'.auth()->user()->getLoggedInUserImage())}}" alt="user"></div>
                                     <div class="u-text">
-                                        <h4>Julius Ssemakula</h4>
-                                        <p class="text-muted">julisema4@gmail.com</p>
+                                        <h4>{{auth()->user()->name}}</h4>
+                                        <p class="text-muted">{{auth()->user()->email}}</p>
                                         {{-- <a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a> --}}
                                     </div>
                                 </div>

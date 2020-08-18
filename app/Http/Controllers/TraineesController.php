@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Enrollment;
+use App\Revelations;
 
 class TraineesController extends Controller
 {
@@ -11,7 +12,10 @@ class TraineesController extends Controller
         $all_trainees           = $this->showAllTrainees();
         $number_of_new_trainees = $this->countNewTrainees();
         $number_of_old_trainees = $this->countOldTrainees();
-        return view('Admin.all_trainees',compact('all_trainees','number_of_old_trainees','number_of_new_trainees'));
+        $number_of_all_trainees = $this->countNewTrainees() + $this->countOldTrainees();
+        $total_of_marathon_trainees =$this->countBibleMarathonTrainees();
+        return view('Admin.all_trainees',compact('all_trainees','number_of_old_trainees','number_of_new_trainees','number_of_all_trainees',
+                   'total_of_marathon_trainees'));
     }
 
     protected function getNewTrainees(){
@@ -64,7 +68,15 @@ class TraineesController extends Controller
         $count_of_old_trainees = Enrollment::whereMonth('created_at','!=',date('M'))->count();
         return $count_of_old_trainees;
     }
-
+    /**
+     * This count the bible marathon number
+     */
+    private function countBibleMarathonTrainees(){
+        $count_revelation_to_get_bible_marathon= Revelations::join('users','revelations.trainee_id','users.id')
+        ->whereMonth('revelations.created_at','!=',date('M'))
+        ->groupBy('revelations.trainee_id')->count();
+        return $count_revelation_to_get_bible_marathon;
+    }
     /**
      * This function suspends a trainee
      */

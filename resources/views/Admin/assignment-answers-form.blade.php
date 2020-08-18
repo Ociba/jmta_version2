@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Upload Assignment Answer File</label>
-                                        <input type="file" class="form-control" id="exampleInputPassword1" name="answer" placeholder="">
+                                        <input type="file" class="form-control" id="exampleInputPassword1" name="answer" placeholder="" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>

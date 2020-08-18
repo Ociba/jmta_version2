@@ -26,7 +26,7 @@
                                 @csrf
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Add mark</label>
-                                        <input type="text" class="form-control"  name="mark" placeholder="">
+                                        <input type="text" class="form-control"  name="mark" placeholder="" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>

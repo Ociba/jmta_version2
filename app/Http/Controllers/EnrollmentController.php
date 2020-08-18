@@ -12,7 +12,19 @@ class EnrollmentController extends Controller
         $this->payment_instance = new PaymentsController;
         $this->authenticated_user_instance = new AuthenticatedUserController;
     }
-
+    protected function getEnrollmentInformation(){
+       $all_courses_enrolled =Enrollment::join('courses','enrollments.course_id','courses.id')
+        ->where('courses.status','active')
+        ->select('courses.course_name','courses.created_at','enrollments.first_name','enrollments.last_name','enrollments.email','enrollments.id')->get();
+        return view('Admin.all_enrolled_courses',compact('all_courses_enrolled'));
+    }
+    protected function getIndividualEnrollmentInformation($course_id){
+        $individual_enrollment_information = Enrollment::join('courses','enrollments.course_id','courses.id')
+        ->where('enrollments.id',$course_id)
+        ->select('enrollments.*','enrollments.id','courses.course_name')
+        ->get();
+        return view('Admin.enrollment_data',compact('individual_enrollment_information'));
+    }
     protected function getEnrollmentForm(){
         if(in_array('Can view enrollment form', auth()->user()->getUserPermisions())){
         return view('Admin.enrollment_form');
@@ -52,7 +64,7 @@ class EnrollmentController extends Controller
         $enrollment->passport_photo =$enrollment_original_name;
         $enrollment->course_id      = request()->course_id;
         $enrollment->save();
-        return redirect("/get-sub-courses/".request()->course_id)->with('msg', 'Your enrollment was successfuly recieved');
+        return redirect("/get-course-unit/".request()->course_id)->with('msg', 'Your enrollment was successfuly recieved');
     }
     
     /**
@@ -96,5 +108,9 @@ class EnrollmentController extends Controller
         }else{
             return $this->enrollNewTrainee();
         }
+    }
+    protected function changePaymentStatus($id){
+        Enrollment::where('id',$id)->update(array('payment_status' =>'successful'));
+        return redirect()->back()->with('msg','You have changed Payment status for Enrollment to successfull');
     }
 }
