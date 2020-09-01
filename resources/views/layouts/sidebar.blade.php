@@ -6,12 +6,17 @@
             <ul id="sidebarnav">
                 @if(in_array('Can view dashboard', auth()->user()->getUserPermisions()))
                 <li>
-                    <a class="waves-effect waves-dark text-white" href="/dashboard" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Dashboard</span></a>
+                    <a class="waves-effect waves-dark text-white" href="/dashboard/trainee_id}" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Dashboard</span></a>
+                </li>
+                @endif
+                @if(in_array('Can view marathon details', auth()->user()->getUserPermisions()))
+                <li>
+                    <a class="waves-effect waves-dark text-white" href="/read-marathon-details" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Marathon</span></a>
                 </li>
                 @endif
                 @if(in_array('Can view Enrolment details', auth()->user()->getUserPermisions()))
                 <li>
-                    <a class="waves-effect waves-dark text-white" href="/get-enrolment-details" aria-expanded="false"><i class="fa fa-info-circle"></i><span class="hide-menu">Enrolment Information</span></a>
+                    <a class="waves-effect waves-dark text-white" href="/get-enrolment-details" aria-expanded="false"><i class="fa fa-info-circle"></i><span class="hide-menu">Enrolment</span></a>
                 </li>
                 @endif
                 <li>
@@ -66,6 +71,11 @@
                 @if(in_array('Can view course', auth()->user()->getUserPermisions()))
                 <li>
                     <a class="waves-effect waves-dark text-white" href="/get-courses" aria-expanded="false"><span class="hide-menu"> View Course</span></a>
+                </li>
+                @endif
+                @if(in_array('Can my course enrolled for', auth()->user()->getUserPermisions()))
+                <li>
+                    <a class="waves-effect waves-dark text-white" href="/get-my-enrolled-courses/{trainee_id}" aria-expanded="false"><span class="hide-menu"> My Enrolled Courses </span></a>
                 </li>
                 @endif
                 @if(in_array('Can add course', auth()->user()->getUserPermisions()))

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Enrollment;
 
 class PaymentsController extends Controller
 {
@@ -12,7 +13,9 @@ class PaymentsController extends Controller
     protected function getPaymentMethod($id){
         return redirect('/get-enrollment-form/'.$id);
         return view('Admin.payment_methods');
+    
     }
+   
     /**
      * this function calls the payment depending on the users selection
      */

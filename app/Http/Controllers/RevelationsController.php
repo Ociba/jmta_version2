@@ -11,7 +11,24 @@ class RevelationsController extends Controller
     public function __construct(){
         $this->authenticated_user = new AuthenticatedUserController;
     }
-
+     /**
+      * This function returns page for marathon details
+      */ 
+      protected function readMarathonPreview(){
+        if($this->totalRevelationSubmitted(auth()->user()->id) == 40){
+            return redirect('/get-courses');
+         }else{
+             return view('Admin.marathon');
+            } 
+       }
+      /*
+      * This function is for validating users to see assessment form if they have  submitted 40 times revelations
+      */
+     private function totalRevelationSubmitted($trainee_id){
+         $count_times_revelations_submitted =Revelations::join('users','revelations.trainee_id','users.id')
+         ->where('revelations.trainee_id',$trainee_id)->count();
+         return $count_times_revelations_submitted;
+     }
     /**
      * This function is for individual evaluation details
      */

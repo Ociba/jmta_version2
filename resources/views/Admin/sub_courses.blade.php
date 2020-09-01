@@ -46,7 +46,7 @@
 										<div class="card-body">
 											<h4 class="card-title">{{$course_units->course_unit}}</h4>
 											<p class="card-text">{{$course_units->description}}</p>
-											<a href="/start-lectures/{{$course_units->id}}" class="btn btn-primary">Start Course</a>
+											<a href="/view-course/{{$course_units->id}}" class="btn btn-primary">Start Course</a>
 										</div>
 									</div>
 									<!-- Card -->

@@ -19,18 +19,20 @@
         <!-- Row -->
         <div class="row">
             <!-- column -->
-            @foreach($courses as $course)
+            @foreach($courses as $id=> $course)
+            @foreach($course as $this_course)
             <div class="col-lg-6 col-md-6">
                 <!-- Card -->
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{$course->course_name}}</h4>
-                        <p class="card-text">{{$course->course_description}}</p>
-                        <a href="/get-payment-methods/{{$course->id}}" class="btn btn-primary">Enroll For This Course</a>
+                        <h4 class="card-title">{{$this_course->course_name}}</h4>
+                        <p class="card-text">{{$this_course->course_description}}</p>
+                        <a href="/get-payment-methods/{{$this_course->id}}" class="btn btn-primary">Enroll For This Course</a>
                     </div>
                 </div>
                 <!-- Card -->
             </div>
+            @endforeach
             @endforeach
         </div>
         <!-- Row -->

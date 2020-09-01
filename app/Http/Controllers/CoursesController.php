@@ -7,6 +7,7 @@ use App\Course;
 use App\Subcourse;
 use App\SubcourseLecture;
 use App\Courseunit;
+use App\Enrollment;
 
 class CoursesController extends Controller
 {
@@ -16,17 +17,45 @@ class CoursesController extends Controller
     }
 
     protected function getCourses(){
-        $courses = Course::get();
+        $enrolled_for_id = [];
+        $not_enrolled_for = [];
+        $courses_ive_not_enrolled_for = [];
+        $courses = Enrollment::where('trainee_id',auth()->user()->id)
+        ->join('courses','courses.id','enrollments.course_id')
+        ->get();
+        foreach($courses as $enrolled_for){
+            array_push($enrolled_for_id, $enrolled_for->course_id);
+        }
+        $all_coursers = Course::all();
+        foreach($all_coursers as $courses){
+            if(in_array($courses->id, $enrolled_for_id)){
+                continue;
+            }else{
+                array_push($not_enrolled_for, $courses->id);
+            }
+        }
+        for($i=0; $i<count($not_enrolled_for); $i++){
+            array_push($courses_ive_not_enrolled_for, Course::where('id',$not_enrolled_for[$i])->get());
+        }
+        // return collect($courses_ive_not_enrolled_for);
+        $courses = collect($courses_ive_not_enrolled_for);
         return view('Admin.courses', compact('courses'));
     }
-    // protected function getSubCourses(){
-    //     $sub_courses = Subcourse::join('courses','subcourses.course_id','courses.id')
-    //     ->select('courses.course_name', 'subcourses.*')->get();
-    //     return view('Admin.sub_courses', compact('sub_courses'));
-    // }
+   
     protected function getCourseUnits(){
-        $get_course_units =Courseunit::get();
+        $get_course_units =Courseunit::join('courses','courseunits.course_id','courses.id')
+        ->join('users','courseunits.trainee_id','users.id')
+        ->orderBy('courseunits.created_at','desc')
+        ->limit(1)->get();
         return view('Admin.sub_courses', compact('get_course_units'));
+    }
+    protected function getAlreadEnrolledCourses($trainee_id){
+        $get_course_already_enrolled =Enrollment::join('courses','enrollments.course_id','courses.id')
+        ->join('users','enrollments.trainee_id','users.id')
+        ->where('enrollments.trainee_id',auth()->user()->id)
+        ->select('enrollments.*','users.name','courses.course_name')
+        ->get();
+        return view('Admin.enrolled_courses', compact('get_course_already_enrolled'));
     }
     protected function getLecture($id){
         if(SubcourseLecture::where('courseunit_id',$id)->where('status','!=','active')->exists()){

@@ -10,26 +10,27 @@ class EnrollmentController extends Controller
     //creating an instance of payment
     public function __construct(){
         $this->payment_instance = new PaymentsController;
-        $this->authenticated_user_instance = new AuthenticatedUserController;
+       // $this->authenticated_user_instance = new AuthenticatedUserController;
+        $this->authenticated_user = new AuthenticatedUserController;
     }
     protected function getEnrollmentInformation(){
        $all_courses_enrolled =Enrollment::join('courses','enrollments.course_id','courses.id')
+       ->join('users','enrollments.trainee_id','users.id')
         ->where('courses.status','active')
-        ->select('courses.course_name','courses.created_at','enrollments.first_name','enrollments.last_name','enrollments.email','enrollments.id')->get();
+        ->select('courses.course_name','courses.created_at','enrollments.first_name','enrollments.last_name','users.email','enrollments.id')->get();
         return view('Admin.all_enrolled_courses',compact('all_courses_enrolled'));
     }
     protected function getIndividualEnrollmentInformation($course_id){
         $individual_enrollment_information = Enrollment::join('courses','enrollments.course_id','courses.id')
+        ->join('users','enrollments.trainee_id','users.id')
         ->where('enrollments.id',$course_id)
-        ->select('enrollments.*','enrollments.id','courses.course_name')
+        ->select('enrollments.*','enrollments.id','courses.course_name','users.email')
         ->get();
         return view('Admin.enrollment_data',compact('individual_enrollment_information'));
     }
     protected function getEnrollmentForm(){
-        if(in_array('Can view enrollment form', auth()->user()->getUserPermisions())){
+         if(in_array('Can view enrollment form', auth()->user()->getUserPermisions())){
         return view('Admin.enrollment_form');
-        }else{
-            abort('404');
         }
     }
     /*
@@ -44,7 +45,7 @@ class EnrollmentController extends Controller
         $save_enrollment_image->move('enrollment-photos/',$enrollment_original_name);
 
         $enrollment = new Enrollment;
-        $enrollment->email = $this->authenticated_user_instance->getAuthenticatedUserEmail();
+        $enrollment->trainee_id = $this->authenticated_user->getAuthenticatedUser();
         $enrollment->first_name = request()->first_name;
         $enrollment->last_name = request()->last_name;
         $enrollment->gender  = request()->gender;

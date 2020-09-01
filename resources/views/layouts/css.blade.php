@@ -15,6 +15,7 @@
     <link href="{{asset('admin_pages/node_modules/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{asset('admin_pages/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('admin_pages/css/login.css')}}" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
     <link href="{{asset('admin_pages/css/pages/dashboard1.css')}}" rel="stylesheet">
     <!-- You can change the theme colors from here -->

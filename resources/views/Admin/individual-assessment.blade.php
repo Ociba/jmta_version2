@@ -82,9 +82,11 @@
                                         <td>{{$individual->question_eighteen}}</td>
                                         <td>{{$individual->question_nineteen}}</td>
                                         <td>{{$individual->question_twenty}}</td>
-                                        <td>
-                                        <video src="{{asset('marathon-videos/'.$individual->video_recoding)}}" style="width:70px;" poster="" controls>
+                                        <td class="card-img embed-responsive embed-responsive-16by9 mb-3">
+                                        {{--<video src="{{asset('marathon-videos/'.$individual->video_recoding)}}" poster="" controls>
                                         </video>
+                                        --}}
+                                            <iframe class="embed-responsive-item" allowfullscreen="" frameborder="0" mozallowfullscreen="" width="50" height="50" src="{{asset('marathon-videos/'.$individual->video_recording)}}" webkitallowfullscreen=""></iframe>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -129,8 +129,6 @@
         @include('layouts.javascript')
         <script src="{{asset('admin_pages/js/sidebarmenu.js')}}"></script>
         <!--Video plugins-->
-        <script src="{{asset('admin_pages/resolution/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('admin_pages/resolution/blockui.min.js')}}"></script>
         </div>
         </div>
         </div>

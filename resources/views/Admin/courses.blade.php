@@ -16,6 +16,7 @@
             <div class="page-wrapper">
                 <div class="container-fluid">
                     @include('layouts.breadcrumbs')
+                    @include('layouts.messages')
                     @include('layouts.cards_images')
                 </div>
                 @include('layouts.footer')
